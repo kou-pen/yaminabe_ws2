@@ -21,6 +21,7 @@ void main(void){
     bool equal = vec_data.size() == vec_old_data.size() && std::equal(vec_data.cbegin(), vec_data.cend(), vec_old_data.cbegin());
     if not equal{switch_nom = judge_switch(vec_data,vec_old_data);}
     toggle_prog(switch_nom);
+    vec_old_data = vec_data;
 }
 
 int judge_switch(new_arr,old_arr){
