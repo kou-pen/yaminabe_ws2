@@ -1,0 +1,37 @@
+[0.384s] Invoking command in '/home/kohki/yaminabe_ws/joy-recv-py': PYTHONPATH=/home/kohki/yaminabe_ws/joy-recv-py/build/joy_recv/prefix_override:/home/kohki/yaminabe_ws/joy-recv-py/install/joy_recv/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/joy_recv build --build-base /home/kohki/yaminabe_ws/joy-recv-py/build/joy_recv/build install --record /home/kohki/yaminabe_ws/joy-recv-py/build/joy_recv/install.log --single-version-externally-managed
+[0.526s] running egg_info
+[0.526s] creating build/joy_recv/joy_recv.egg-info
+[0.526s] writing build/joy_recv/joy_recv.egg-info/PKG-INFO
+[0.526s] writing dependency_links to build/joy_recv/joy_recv.egg-info/dependency_links.txt
+[0.526s] writing entry points to build/joy_recv/joy_recv.egg-info/entry_points.txt
+[0.526s] writing requirements to build/joy_recv/joy_recv.egg-info/requires.txt
+[0.526s] writing top-level names to build/joy_recv/joy_recv.egg-info/top_level.txt
+[0.527s] writing manifest file 'build/joy_recv/joy_recv.egg-info/SOURCES.txt'
+[0.528s] reading manifest file 'build/joy_recv/joy_recv.egg-info/SOURCES.txt'
+[0.528s] writing manifest file 'build/joy_recv/joy_recv.egg-info/SOURCES.txt'
+[0.528s] running build
+[0.528s] running build_py
+[0.528s] creating /home/kohki/yaminabe_ws/joy-recv-py/build/joy_recv/build
+[0.528s] creating /home/kohki/yaminabe_ws/joy-recv-py/build/joy_recv/build/lib
+[0.529s] creating /home/kohki/yaminabe_ws/joy-recv-py/build/joy_recv/build/lib/joy_recv
+[0.529s] copying joy_recv/__init__.py -> /home/kohki/yaminabe_ws/joy-recv-py/build/joy_recv/build/lib/joy_recv
+[0.529s] copying joy_recv/joy_recv.py -> /home/kohki/yaminabe_ws/joy-recv-py/build/joy_recv/build/lib/joy_recv
+[0.529s] running install
+[0.529s] running install_lib
+[0.529s] creating /home/kohki/yaminabe_ws/joy-recv-py/install/joy_recv/lib/python3.10/site-packages/joy_recv
+[0.529s] copying /home/kohki/yaminabe_ws/joy-recv-py/build/joy_recv/build/lib/joy_recv/__init__.py -> /home/kohki/yaminabe_ws/joy-recv-py/install/joy_recv/lib/python3.10/site-packages/joy_recv
+[0.529s] copying /home/kohki/yaminabe_ws/joy-recv-py/build/joy_recv/build/lib/joy_recv/joy_recv.py -> /home/kohki/yaminabe_ws/joy-recv-py/install/joy_recv/lib/python3.10/site-packages/joy_recv
+[0.529s] byte-compiling /home/kohki/yaminabe_ws/joy-recv-py/install/joy_recv/lib/python3.10/site-packages/joy_recv/__init__.py to __init__.cpython-310.pyc
+[0.529s] byte-compiling /home/kohki/yaminabe_ws/joy-recv-py/install/joy_recv/lib/python3.10/site-packages/joy_recv/joy_recv.py to joy_recv.cpython-310.pyc
+[0.530s] running install_data
+[0.530s] creating /home/kohki/yaminabe_ws/joy-recv-py/install/joy_recv/share/ament_index
+[0.530s] creating /home/kohki/yaminabe_ws/joy-recv-py/install/joy_recv/share/ament_index/resource_index
+[0.530s] creating /home/kohki/yaminabe_ws/joy-recv-py/install/joy_recv/share/ament_index/resource_index/packages
+[0.530s] copying resource/joy_recv -> /home/kohki/yaminabe_ws/joy-recv-py/install/joy_recv/share/ament_index/resource_index/packages
+[0.530s] copying package.xml -> /home/kohki/yaminabe_ws/joy-recv-py/install/joy_recv/share/joy_recv
+[0.530s] running install_egg_info
+[0.531s] Copying build/joy_recv/joy_recv.egg-info to /home/kohki/yaminabe_ws/joy-recv-py/install/joy_recv/lib/python3.10/site-packages/joy_recv-0.0.0-py3.10.egg-info
+[0.532s] running install_scripts
+[0.544s] Installing joy_recver script to /home/kohki/yaminabe_ws/joy-recv-py/install/joy_recv/lib/joy_recv
+[0.544s] writing list of installed files to '/home/kohki/yaminabe_ws/joy-recv-py/build/joy_recv/install.log'
+[0.560s] Invoked command in '/home/kohki/yaminabe_ws/joy-recv-py' returned '0': PYTHONPATH=/home/kohki/yaminabe_ws/joy-recv-py/build/joy_recv/prefix_override:/home/kohki/yaminabe_ws/joy-recv-py/install/joy_recv/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/joy_recv build --build-base /home/kohki/yaminabe_ws/joy-recv-py/build/joy_recv/build install --record /home/kohki/yaminabe_ws/joy-recv-py/build/joy_recv/install.log --single-version-externally-managed
