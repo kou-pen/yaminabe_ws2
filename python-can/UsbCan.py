@@ -16,9 +16,12 @@ class UsbCan:
     """open can port"""
     def open(self):
         self.__state = True
-        os.system('sudo ip link set can0 type can bitrate 500000')
-        os.system('sudo ifconfig can0 up')
-        self.__can0 = can.interface.Bus(channel = 'can0', bustype = 'socketcan_ctypes')
+        try:
+            os.system('sudo ip link set can0 type can bitrate 500000')
+            os.system('sudo ifconfig can0 up')
+            self.__can0 = can.interface.Bus(channel = 'can0', bustype = 'socketcan')
+        except OSError:
+            print('OS Error')
         return
     
     """close can port"""
@@ -28,9 +31,9 @@ class UsbCan:
         return
     
     """send data"""
-    def send(self,id,data,ext = False):
+    def send(self,msg):
         if self.__state == True:
-            msg = can.message(id,data,ext)
+            #msg = can.Message(id,data,ext)
             self.__can0.send(msg)
         return
     

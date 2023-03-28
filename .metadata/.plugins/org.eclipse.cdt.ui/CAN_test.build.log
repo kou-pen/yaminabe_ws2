@@ -1,0 +1,31 @@
+14:30:27 **** Incremental Build of configuration Debug for project CAN_test ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:116:11: warning: variable 'data' set but not used [-Wunused-but-set-variable]
+  116 |   uint8_t data[8];
+      |           ^~~~
+../Core/Src/main.c:115:12: warning: variable 'dlc' set but not used [-Wunused-but-set-variable]
+  115 |   uint32_t dlc;
+      |            ^~~
+../Core/Src/main.c:114:12: warning: variable 'id' set but not used [-Wunused-but-set-variable]
+  114 |   uint32_t id;
+      |            ^~
+At top level:
+../Core/Src/main.c:118:8: warning: 'HAL_CAN_RxFifo0MsgPendingCallback' defined but not used [-Wunused-function]
+  118 |   void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-g++ -o "CAN_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/CAN_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: CAN_test.elf
+ 
+arm-none-eabi-size   CAN_test.elf 
+arm-none-eabi-objdump -h -S  CAN_test.elf  > "CAN_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  11516	     20	   1676	  13212	   339c	CAN_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_test.list
+ 
+
+14:30:27 Build Finished. 0 errors, 4 warnings. (took 326ms)
+

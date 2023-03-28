@@ -758,3 +758,115 @@
 2023-03-28 11:26:37,668 [INFO] ApiDb:452 - User favorites MCUs=[]
 2023-03-28 11:26:37,668 [INFO] ApiDb:448 - Save user favorites file /home/kohki/.stm32cubeide/favorites.boards.txt: 0 item(s)
 2023-03-28 11:26:37,668 [INFO] ApiDb:452 - User favorites Boards=[]
+2023-03-28 12:53:10,590 [INFO] Can:71 - Can Add PropertyChangeListener com.st.microxplorer.plugins.ip.can.Can@13ddf3be
+2023-03-28 12:55:56,710 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 12:55:56,757 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 12:57:57,910 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 12:57:57,954 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 12:58:05,709 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 12:58:05,752 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 12:59:23,845 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 12:59:23,894 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 12:59:39,746 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 12:59:39,788 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 12:59:54,395 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 12:59:54,437 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:00:19,851 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:00:19,895 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:04:42,506 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:04:42,555 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:04:44,612 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:04:44,654 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:04:46,095 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:05:10,719 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:05:11,948 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:05:13,893 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:05:13,933 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:05:18,646 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:05:18,686 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:05:20,963 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:05:21,012 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:05:22,692 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:05:22,731 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:05:24,581 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:05:24,621 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:05:43,424 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:05:45,680 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:05:46,787 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:07:03,886 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:07:03,928 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:07:11,311 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:07:11,350 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:08:39,170 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:08:39,210 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 13:12:26,800 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 590132648 Bytes (870318080)
+2023-03-28 13:12:27,830 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 336154432 Bytes (870318080)
+2023-03-28 13:12:30,427 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 610359104 Bytes (870318080)
+2023-03-28 13:12:30,556 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: CAN
+2023-03-28 13:12:30,556 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-03-28 13:12:30,557 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-03-28 13:12:30,557 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-03-28 13:12:30,557 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2023-03-28 13:12:30,557 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-03-28 13:12:30,557 [INFO] CodeGenerator:793 - code generatio: config db path: /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.common.mx_6.8.0.202302231600//db/
+2023-03-28 13:12:30,712 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/CAN_test/MXTmpFiles/license.tmp_save
+2023-03-28 13:12:30,811 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/CAN_test/MXTmpFiles/license.tmp
+2023-03-28 13:12:30,821 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/CAN_test/MXTmpFiles/gpio.tmp_save
+2023-03-28 13:12:30,875 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/CAN_test/MXTmpFiles/gpio.tmp
+2023-03-28 13:12:30,912 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/CAN_test/Core/Src/stm32f4xx_it.c_save
+2023-03-28 13:12:31,027 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/CAN_test/Core/Src/stm32f4xx_it.c
+2023-03-28 13:12:31,028 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/CAN_test/Core/Inc/stm32f4xx_it.h_save
+2023-03-28 13:12:31,066 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/CAN_test/Core/Inc/stm32f4xx_it.h
+2023-03-28 13:12:31,068 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/CAN_test/Core/Src/stm32f4xx_hal_msp.c_save
+2023-03-28 13:12:31,137 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/CAN_test/Core/Src/stm32f4xx_hal_msp.c
+2023-03-28 13:12:31,138 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/CAN_test/MXTmpFiles/system.tmp_save
+2023-03-28 13:12:31,174 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/CAN_test/MXTmpFiles/system.tmp
+2023-03-28 13:12:31,176 [INFO] CodeEngine:311 - oldGeneratedFile, /home/kohki/yaminabe_ws/CAN_test/Core/Inc/stm32f4xx_hal_conf.h_save
+2023-03-28 13:12:31,223 [INFO] CodeEngine:335 - Generated code: /home/kohki/yaminabe_ws/CAN_test/Core/Inc/stm32f4xx_hal_conf.h
+2023-03-28 13:12:31,234 [WARN] IPConfigManager:2937 - Warning: the RefConfig PLL2P_FOR_MCO is not available in your config.xml file
+2023-03-28 13:12:31,238 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/CAN_test/Core/Inc/main.h_save
+2023-03-28 13:12:31,291 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/CAN_test/Core/Inc/main.h
+2023-03-28 13:12:31,292 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/CAN_test/Core/Src/main.c_save
+2023-03-28 13:12:31,366 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/CAN_test/Core/Src/main.c
+2023-03-28 13:12:31,734 [INFO] ProjectBuilder:2996 - Time for Copy HAL[1] : 20mS.
+2023-03-28 13:12:31,736 [INFO] ProjectBuilder:4304 - Project Generator version: 3.19.2
+2023-03-28 13:12:31,874 [INFO] ConfigFileManager:1483 - The Die is : DIE421
+2023-03-28 13:12:32,729 [INFO] ProjectBuilder:4505 - Time for Generating toolchain IDE Files: 993mS.
+2023-03-28 13:12:32,729 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 0mS.
+2023-03-28 13:12:32,730 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 0mS.
+2023-03-28 13:14:06,126 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-03-28 14:02:46,742 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 458916920 Bytes (913309696)
+2023-03-28 14:02:47,884 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 486179896 Bytes (913309696)
+2023-03-28 14:02:49,893 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 718897936 Bytes (913309696)
+2023-03-28 14:02:50,058 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: CAN
+2023-03-28 14:02:50,058 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-03-28 14:02:50,058 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-03-28 14:02:50,058 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-03-28 14:02:50,058 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2023-03-28 14:02:50,059 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-03-28 14:02:50,059 [INFO] CodeGenerator:793 - code generatio: config db path: /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.common.mx_6.8.0.202302231600//db/
+2023-03-28 14:02:50,227 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/CAN_test/MXTmpFiles/license.tmp_save
+2023-03-28 14:02:50,316 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/CAN_test/MXTmpFiles/license.tmp
+2023-03-28 14:02:50,329 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/CAN_test/MXTmpFiles/gpio.tmp_save
+2023-03-28 14:02:50,401 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/CAN_test/MXTmpFiles/gpio.tmp
+2023-03-28 14:02:50,439 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/CAN_test/Core/Src/stm32f4xx_it.c_save
+2023-03-28 14:02:50,538 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/CAN_test/Core/Src/stm32f4xx_it.c
+2023-03-28 14:02:50,539 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/CAN_test/Core/Inc/stm32f4xx_it.h_save
+2023-03-28 14:02:50,581 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/CAN_test/Core/Inc/stm32f4xx_it.h
+2023-03-28 14:02:50,583 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/CAN_test/Core/Src/stm32f4xx_hal_msp.c_save
+2023-03-28 14:02:50,649 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/CAN_test/Core/Src/stm32f4xx_hal_msp.c
+2023-03-28 14:02:50,650 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/CAN_test/MXTmpFiles/system.tmp_save
+2023-03-28 14:02:50,686 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/CAN_test/MXTmpFiles/system.tmp
+2023-03-28 14:02:50,688 [INFO] CodeEngine:311 - oldGeneratedFile, /home/kohki/yaminabe_ws/CAN_test/Core/Inc/stm32f4xx_hal_conf.h_save
+2023-03-28 14:02:50,730 [INFO] CodeEngine:335 - Generated code: /home/kohki/yaminabe_ws/CAN_test/Core/Inc/stm32f4xx_hal_conf.h
+2023-03-28 14:02:50,738 [WARN] IPConfigManager:2937 - Warning: the RefConfig PLL2P_FOR_MCO is not available in your config.xml file
+2023-03-28 14:02:50,741 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/CAN_test/Core/Inc/main.h_save
+2023-03-28 14:02:50,786 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/CAN_test/Core/Inc/main.h
+2023-03-28 14:02:50,787 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/CAN_test/Core/Src/main.c_save
+2023-03-28 14:02:50,842 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/CAN_test/Core/Src/main.c
+2023-03-28 14:02:51,188 [INFO] ProjectBuilder:2996 - Time for Copy HAL[1] : 13mS.
+2023-03-28 14:02:51,190 [INFO] ProjectBuilder:4304 - Project Generator version: 3.19.2
+2023-03-28 14:02:51,337 [INFO] ConfigFileManager:1483 - The Die is : DIE421
+2023-03-28 14:02:52,174 [INFO] ProjectBuilder:4505 - Time for Generating toolchain IDE Files: 985mS.
+2023-03-28 14:02:52,174 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 0mS.
+2023-03-28 14:02:52,175 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 0mS.
