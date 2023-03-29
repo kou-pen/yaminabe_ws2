@@ -870,3 +870,4 @@
 2023-03-28 14:02:52,174 [INFO] ProjectBuilder:4505 - Time for Generating toolchain IDE Files: 985mS.
 2023-03-28 14:02:52,174 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 0mS.
 2023-03-28 14:02:52,175 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 0mS.
+2023-03-28 16:38:31,908 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] SWT SessionManagerDBus: Failed to UnregisterClient: 接続が閉じています

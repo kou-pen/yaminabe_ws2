@@ -31,9 +31,10 @@ class UsbCan:
         return
     
     """send data"""
-    def send(self,msg):
+    def send(self,id,data,ext = False):
         if self.__state == True:
-            #msg = can.Message(id,data,ext)
+            msg = can.Message(id,data,ext)
             self.__can0.send(msg)
+            print(msg)
         return
     

@@ -4,10 +4,15 @@ import can
 
 Ucan = UsbCan()
 txdata = [1,2,3,4,5,6,7,8]
-
+txid = 1
 Ucan.open()
 
 for i in range(30):
+    Ucan.send(txid,txdata)
+    time.sleep(0.005)
+
+"""
+for i in range(30): #test code
     msg = can.Message(
             arbitration_id=0x001, 
             is_extended_id =0, 
@@ -15,7 +20,7 @@ for i in range(30):
     print(msg)
     Ucan.send(msg)
     time.sleep(0.005)
-
+"""
 
 '''
 while True:

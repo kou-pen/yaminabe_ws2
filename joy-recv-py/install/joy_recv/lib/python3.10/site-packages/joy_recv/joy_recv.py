@@ -2,6 +2,7 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Joy
+
 class JoyRecv(Node):
     node_name = 'joy_recv'
     topic_name = 'joy'
@@ -13,8 +14,8 @@ class JoyRecv(Node):
         pass
     
     def callback(self, joy):
-        buttondata = [0,0,0,0,0,0,0,0]
-        buttondata[0] = joy.axes[0] * 128 + 128
+        buttondata = [0] * 8
+        buttondata[0] = joy.axes[0] * 128 + 128 #0~256
         buttondata[1] = joy.axes[1] * 128 + 128
         buttondata[2] = joy.axes[3] * 128 + 128
         buttondata[3] = joy.axes[4] * 128 + 128 
@@ -22,7 +23,9 @@ class JoyRecv(Node):
         buttondata[5] = joy.buttons[1]
         buttondata[6] = joy.buttons[2]
         buttondata[7] = joy.buttons[3]
-        self.get_logger().info("axis: %f, %f, %f, %f button %d %d %d %d" %(buttondata[0],buttondata[1],buttondata[2],buttondata[3], buttondata[4],buttondata[5],buttondata[6],buttondata[7]))
+        print_text = "axis:{},{},{},{}, button:a{},b{},x{},y{}"
+        self.get_logger().info(print_text.format(*buttondata))
+        #self.get_logger().info("axis: %f, %f, %f, %f button %d %d %d %d" %(buttondata[0],buttondata[1],buttondata[2],buttondata[3], buttondata[4],buttondata[5],buttondata[6],buttondata[7]))
         
 def main(args=None):
     rclpy.init(args=args)
