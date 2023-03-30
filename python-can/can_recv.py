@@ -2,13 +2,15 @@ from UsbCan import UsbCan
 import time
 import can
 
+count = int(input('how many times'))
+if count > 255:
+    count = 255
+
 Ucan = UsbCan()
 txdata = [1,2,3,4,5,6,7,8]
 Ucan.open()
 
-count = int(input('how many times'))
-if count > 255:
-    count = 255
+
 
 for i in range(count):
     msg = can.Message(arbitration_id=0x001,

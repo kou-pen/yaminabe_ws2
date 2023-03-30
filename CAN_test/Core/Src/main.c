@@ -103,7 +103,7 @@ int main(void)
   filter.FilterMaskIdLow      = 0;                        // フィルターマスク(下位16ビット)
   filter.FilterScale          = CAN_FILTERSCALE_32BIT;    // フィルタースケール
   filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;         // フィルターに割り当てるFIFO
-  filter.FilterBank           = 0;                        // フィルターバンクNo
+  filter.FilterBank           = 14;                        // フィルターバンクNo
   filter.FilterMode           = CAN_FILTERMODE_IDMASK;    // フィルターモード
   filter.SlaveStartFilterBank = 14;                       // スレーブCANの開始フィルターバンクNo
   filter.FilterActivation     = ENABLE;                   // フィルター無効／有効
@@ -115,12 +115,15 @@ int main(void)
   uint32_t id;
   uint32_t dlc;
   uint8_t data[8];
+  uint8_t RxData[8];
+  CAN_RxHeaderTypeDef RxHeader;
+
 
   void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
   {
-	  CAN_RxHeaderTypeDef RxHeader;
-	  uint8_t RxData[8];
-	  if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
+
+
+	  if (HAL_CAN_GetRxMessage(&hcan2, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
 	  {
 		  id = (RxHeader.IDE == CAN_ID_STD)? RxHeader.StdId : RxHeader.ExtId;     // ID
 		  dlc = RxHeader.DLC;                                                     // DLC
@@ -135,6 +138,7 @@ int main(void)
 
 	  }
 	  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); //LEDを点灯
+
 
   }
 
