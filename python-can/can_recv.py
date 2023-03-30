@@ -4,11 +4,19 @@ import can
 
 Ucan = UsbCan()
 txdata = [1,2,3,4,5,6,7,8]
-txid = 1
 Ucan.open()
 
-for i in range(30):
-    Ucan.send(txid,txdata)
+count = int(input('how many times'))
+if count > 255:
+    count = 255
+
+for i in range(count):
+    msg = can.Message(arbitration_id=0x001,
+                      is_extended_id= False,
+                      data=[i,255,255,255,255,255,255,255]
+                      )
+    Ucan.send(msg)
+    print('{}:{}'.format(i,msg))
     time.sleep(0.005)
 
 """

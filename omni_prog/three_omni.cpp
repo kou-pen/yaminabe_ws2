@@ -3,7 +3,7 @@
 
 float motor_pwm[3];
 int motor_amp = 64;
-std::vector<int> data[8]; 
+std::vector<int> data[8]; //ここに受信データが入ると仮定
 
 //PWM_STARTとかGPIO_WritePinを忘れない
 

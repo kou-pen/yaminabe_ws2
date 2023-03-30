@@ -111,6 +111,7 @@ int main(void)
   HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); //LEDを点灯
   HAL_Delay(500); //500ms待つ
   HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); //LEDを消灯
+
   uint32_t id;
   uint32_t dlc;
   uint8_t data[8];
@@ -134,8 +135,7 @@ int main(void)
 
 	  }
 	  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); //LEDを点灯
-	  HAL_Delay(500); //500ms待つ
-	  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); //LEDを消灯
+
   }
 
   HAL_CAN_Start(&hcan2);
