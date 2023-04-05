@@ -960,3 +960,11 @@
 2023-04-05 21:33:19,825 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.SocketException: Connection reset
 2023-04-05 21:50:54,453 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.SocketException: Connection reset
 2023-04-05 21:54:24,394 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.SocketException: Connection reset
+2023-04-05 21:59:52,248 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.SocketException: Connection reset
+2023-04-05 22:03:52,807 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.SocketException: Connection reset
+2023-04-05 22:08:44,449 [ERROR] ConfigurationRetriever:142 - IOException on connection: Connection reset
+2023-04-05 22:08:45,445 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.SocketException: Connection reset
+2023-04-05 22:14:42,858 [ERROR] ConfigurationRetriever:142 - IOException on connection: Connection reset
+2023-04-05 22:14:43,235 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.SocketException: Connection reset
+2023-04-05 22:22:25,831 [ERROR] ConfigurationRetriever:142 - IOException on connection: Connection reset
+2023-04-05 22:22:26,805 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.SocketException: Connection reset

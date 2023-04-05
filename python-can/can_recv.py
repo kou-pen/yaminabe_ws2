@@ -10,9 +10,11 @@ parser.add_argument('--pause', default='1')
 args = parser.parse_args()
 
 count_argv= int(args.cantime)
-pause_time = int(args.pause)
+pause_time = float(args.pause)
+"""
 if count_argv > 255:
     count_argv = 255
+    """
 Ucan = UsbCan()
 txdata = [1,2,3,4,5,6,7,8]
 Ucan.open()
@@ -22,7 +24,8 @@ Ucan.open()
 for i in range(count_argv):
     msg = can.Message(arbitration_id=0x001,
                       is_extended_id= False,
-                      data=[i,0,0,0,0,0,0,0]
+                      data=[1,1,1,1,1,1,1,1]
+                      #data=[i,i + 1,i + 2,i + 3,i + 4,i + 5,i + 6,i + 7]
                       )
     Ucan.send(msg)
     print('{}:{}'.format(i,msg))

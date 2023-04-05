@@ -1350,3 +1350,207 @@ Finished building: default.size.stdout
  
 Finished building: CAN_test.list
  
+21:56:07 **** Incremental Build of configuration Debug for project CAN_test ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "CAN_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/CAN_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: CAN_test.elf
+ 
+arm-none-eabi-size   CAN_test.elf 
+arm-none-eabi-objdump -h -S  CAN_test.elf  > "CAN_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  12272	     20	   1692	  13984	   36a0	CAN_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_test.list
+ 
+21:59:50 **** Incremental Build of configuration Debug for project CAN_test ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "CAN_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/CAN_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: CAN_test.elf
+ 
+arm-none-eabi-size   CAN_test.elf 
+arm-none-eabi-objdump -h -S  CAN_test.elf  > "CAN_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  12276	     20	   1692	  13988	   36a4	CAN_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_test.list
+ 
+22:00:45 **** Incremental Build of configuration Debug for project CAN_test ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "CAN_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/CAN_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: CAN_test.elf
+ 
+arm-none-eabi-size   CAN_test.elf 
+arm-none-eabi-objdump -h -S  CAN_test.elf  > "CAN_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  12244	     20	   1692	  13956	   3684	CAN_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_test.list
+ 
+22:03:49 **** Incremental Build of configuration Debug for project CAN_test ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "CAN_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/CAN_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: CAN_test.elf
+ 
+arm-none-eabi-size   CAN_test.elf 
+arm-none-eabi-objdump -h -S  CAN_test.elf  > "CAN_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  12280	     20	   1692	  13992	   36a8	CAN_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_test.list
+ 
+22:04:50 **** Incremental Build of configuration Debug for project CAN_test ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "CAN_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/CAN_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: CAN_test.elf
+ 
+arm-none-eabi-size   CAN_test.elf 
+arm-none-eabi-objdump -h -S  CAN_test.elf  > "CAN_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  12292	     20	   1692	  14004	   36b4	CAN_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_test.list
+ 
+22:05:15 **** Incremental Build of configuration Debug for project CAN_test ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "CAN_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/CAN_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: CAN_test.elf
+ 
+arm-none-eabi-size   CAN_test.elf 
+arm-none-eabi-objdump -h -S  CAN_test.elf  > "CAN_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  12276	     20	   1692	  13988	   36a4	CAN_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_test.list
+ 
+22:06:11 **** Incremental Build of configuration Debug for project CAN_test ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "CAN_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/CAN_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: CAN_test.elf
+ 
+arm-none-eabi-size   CAN_test.elf 
+arm-none-eabi-objdump -h -S  CAN_test.elf  > "CAN_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  12276	     20	   1692	  13988	   36a4	CAN_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_test.list
+ 
+22:06:40 **** Incremental Build of configuration Debug for project CAN_test ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "CAN_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/CAN_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: CAN_test.elf
+ 
+arm-none-eabi-size   CAN_test.elf 
+arm-none-eabi-objdump -h -S  CAN_test.elf  > "CAN_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  12280	     20	   1692	  13992	   36a8	CAN_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_test.list
+ 
+22:08:42 **** Incremental Build of configuration Debug for project CAN_test ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "CAN_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/CAN_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: CAN_test.elf
+ 
+arm-none-eabi-size   CAN_test.elf 
+arm-none-eabi-objdump -h -S  CAN_test.elf  > "CAN_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  12276	     20	   1692	  13988	   36a4	CAN_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_test.list
+ 
+22:14:41 **** Incremental Build of configuration Debug for project CAN_test ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "CAN_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/CAN_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: CAN_test.elf
+ 
+arm-none-eabi-size   CAN_test.elf 
+arm-none-eabi-objdump -h -S  CAN_test.elf  > "CAN_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  17744	    120	   1712	  19576	   4c78	CAN_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_test.list
+ 
+22:15:06 **** Incremental Build of configuration Debug for project CAN_test ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "CAN_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/CAN_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: CAN_test.elf
+ 
+arm-none-eabi-size   CAN_test.elf 
+arm-none-eabi-objdump -h -S  CAN_test.elf  > "CAN_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  17980	    120	   1712	  19812	   4d64	CAN_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_test.list
+ 
+22:22:24 **** Incremental Build of configuration Debug for project CAN_test ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_CAN_RxFifo0MsgPendingCallback':
+../Core/Src/main.c:317:12: warning: too many arguments for format [-Wformat-extra-args]
+  317 |     printf("%d %d &d &d &d &d &d &d\n",data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7]);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-g++ -o "CAN_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/CAN_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: CAN_test.elf
+ 
+arm-none-eabi-size   CAN_test.elf 
+arm-none-eabi-objdump -h -S  CAN_test.elf  > "CAN_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  18060	    120	   1712	  19892	   4db4	CAN_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_test.list
+ 
+22:23:15 **** Incremental Build of configuration Debug for project CAN_test ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_CAN_RxFifo0MsgPendingCallback':
+../Core/Src/main.c:317:12: warning: too many arguments for format [-Wformat-extra-args]
+  317 |     printf("%d,%d,%d,&d,&d,&d,&d,&d\n",data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7]);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-g++ -o "CAN_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/CAN_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: CAN_test.elf
+ 
+arm-none-eabi-size   CAN_test.elf 
+arm-none-eabi-objdump -h -S  CAN_test.elf  > "CAN_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  18060	    120	   1712	  19892	   4db4	CAN_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_test.list
+ 
+22:23:52 **** Incremental Build of configuration Debug for project CAN_test ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "CAN_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/CAN_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: CAN_test.elf
+ 
+arm-none-eabi-size   CAN_test.elf 
+arm-none-eabi-objdump -h -S  CAN_test.elf  > "CAN_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  18060	    120	   1712	  19892	   4db4	CAN_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_test.list
+ 
