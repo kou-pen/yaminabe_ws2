@@ -2,24 +2,31 @@ from UsbCan import UsbCan
 import time
 import can
 
-count = int(input('how many times'))
-if count > 255:
-    count = 255
+import argparse
 
+parser = argparse.ArgumentParser()
+parser.add_argument('--cantime', default='50')
+parser.add_argument('--pause', default='1')
+args = parser.parse_args()
+
+count_argv= int(args.cantime)
+pause_time = int(args.pause)
+if count_argv > 255:
+    count_argv = 255
 Ucan = UsbCan()
 txdata = [1,2,3,4,5,6,7,8]
 Ucan.open()
 
 
 
-for i in range(count):
+for i in range(count_argv):
     msg = can.Message(arbitration_id=0x001,
                       is_extended_id= False,
-                      data=[i,255,255,255,255,255,255,255]
+                      data=[i,0,0,0,0,0,0,0]
                       )
     Ucan.send(msg)
     print('{}:{}'.format(i,msg))
-    time.sleep(0.005)
+    time.sleep(pause_time)
 
 """
 for i in range(30): #test code

@@ -108,23 +108,26 @@ int main(void)
   filter.SlaveStartFilterBank = 14;                       // スレーブCANの開始フィルターバンクNo
   filter.FilterActivation     = ENABLE;                   // フィルター無効／有効
   HAL_CAN_ConfigFilter(&hcan2, &filter);
-  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); //LEDを点灯
+
+  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); //LEDを点灯 初期化確認
   HAL_Delay(500); //500ms待つ
   HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); //LEDを消灯
 
   uint32_t id;
   uint32_t dlc;
   uint8_t data[8];
-  uint8_t RxData[8];
-  CAN_RxHeaderTypeDef RxHeader;
+
+
 
 
   void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
   {
+	  uint8_t RxData[8];
+	  CAN_RxHeaderTypeDef RxHeader;
 
-
-	  if (HAL_CAN_GetRxMessage(&hcan2, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
+	  if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
 	  {
+
 		  id = (RxHeader.IDE == CAN_ID_STD)? RxHeader.StdId : RxHeader.ExtId;     // ID
 		  dlc = RxHeader.DLC;                                                     // DLC
 		  data[0] = RxData[0];                                                    // Data
@@ -135,11 +138,10 @@ int main(void)
 		  data[5] = RxData[5];
 		  data[6] = RxData[6];
 		  data[7] = RxData[7];
-
+		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); //LEDを点灯
+		  HAL_Delay(250); //250ms待つ
+		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); //LEDを消灯
 	  }
-	  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); //LEDを点灯
-
-
   }
 
   HAL_CAN_Start(&hcan2);
@@ -151,7 +153,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
 
     /* USER CODE END WHILE */
 
