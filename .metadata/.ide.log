@@ -1160,3 +1160,6 @@
 2023-04-05 23:23:34,939 [INFO] CADModel:165 - CPN selected for project levelSTM32F446RET6
 2023-04-05 23:23:34,939 [INFO] CADModel:114 - Register for checkConnection events
 2023-04-05 23:23:34,976 [INFO] OpenFileManager:328 - Restore cursor
+2023-04-05 23:37:13,122 [ERROR] ConfigurationRetriever:142 - IOException on connection: Connection reset
+2023-04-05 23:37:13,295 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.SocketException: Connection reset
+2023-04-05 23:56:28,718 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.SocketException: Connection reset
