@@ -8,6 +8,7 @@ build/joy_recv/joy_recv.egg-info/entry_points.txt
 build/joy_recv/joy_recv.egg-info/requires.txt
 build/joy_recv/joy_recv.egg-info/top_level.txt
 build/joy_recv/joy_recv.egg-info/zip-safe
+joy_recv/UsbCan.py
 joy_recv/__init__.py
 joy_recv/joy_recv.py
 resource/joy_recv
