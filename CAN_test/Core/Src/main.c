@@ -59,7 +59,7 @@ static void MX_CAN2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan);
 /* USER CODE END 0 */
 
 /**
@@ -93,56 +93,23 @@ int main(void)
   MX_USART2_UART_Init();
   MX_CAN2_Init();
   /* USER CODE BEGIN 2 */
+	CAN_FilterTypeDef filter;
+	  filter.FilterIdHigh         = 0;                        // フィルターID(上位16ビット)
+	  filter.FilterIdLow          = 0;                        // フィルターID(下位16ビット)
+	  filter.FilterMaskIdHigh     = 0;                        // フィルターマスク(上位16ビット)
+	  filter.FilterMaskIdLow      = 0;                        // フィルターマスク(下位16ビット)
+	  filter.FilterScale          = CAN_FILTERSCALE_32BIT;    // フィルタースケール
+	  filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;         // フィルターに割り当てるFIFO
+	  filter.FilterBank           = 14;                        // フィルターバンクNo
+	  filter.FilterMode           = CAN_FILTERMODE_IDMASK;    // フィルターモード
+	  filter.SlaveStartFilterBank = 14;                       // スレーブCANの開始フィルターバンクNo
+	  filter.FilterActivation     = ENABLE;                   // フィルター無効／有効
 
-
-
-  CAN_FilterTypeDef filter;
-  filter.FilterIdHigh         = 0;                        // フィルターID(上位16ビット)
-  filter.FilterIdLow          = 0;                        // フィルターID(下位16ビット)
-  filter.FilterMaskIdHigh     = 0;                        // フィルターマスク(上位16ビット)
-  filter.FilterMaskIdLow      = 0;                        // フィルターマスク(下位16ビット)
-  filter.FilterScale          = CAN_FILTERSCALE_32BIT;    // フィルタースケール
-  filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;         // フィルターに割り当てるFIFO
-  filter.FilterBank           = 14;                        // フィルターバンクNo
-  filter.FilterMode           = CAN_FILTERMODE_IDMASK;    // フィルターモード
-  filter.SlaveStartFilterBank = 14;                       // スレーブCANの開始フィルターバンクNo
-  filter.FilterActivation     = ENABLE;                   // フィルター無効／有効
   HAL_CAN_ConfigFilter(&hcan2, &filter);
 
   HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); //LEDを点灯 初期化確認
   HAL_Delay(500); //500ms待つ
   HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); //LEDを消灯
-
-  uint32_t id;
-  uint32_t dlc;
-  uint8_t data[8];
-
-
-
-
-  void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
-  {
-	  uint8_t RxData[8];
-	  CAN_RxHeaderTypeDef RxHeader;
-
-	  if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
-	  {
-
-		  id = (RxHeader.IDE == CAN_ID_STD)? RxHeader.StdId : RxHeader.ExtId;     // ID
-		  dlc = RxHeader.DLC;                                                     // DLC
-		  data[0] = RxData[0];                                                    // Data
-		  data[1] = RxData[1];
-		  data[2] = RxData[2];
-		  data[3] = RxData[3];
-		  data[4] = RxData[4];
-		  data[5] = RxData[5];
-		  data[6] = RxData[6];
-		  data[7] = RxData[7];
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); //LEDを点灯
-		  HAL_Delay(250); //250ms待つ
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); //LEDを消灯
-	  }
-  }
 
   HAL_CAN_Start(&hcan2);
   // 割り込み有効
@@ -323,6 +290,38 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+
+  uint32_t id;
+  uint32_t dlc;
+  uint8_t data[8];
+
+
+
+
+  void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
+  {
+	  uint8_t RxData[8];
+	  CAN_RxHeaderTypeDef RxHeader;
+
+	  if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
+	  {
+
+		  id = (RxHeader.IDE == CAN_ID_STD)? RxHeader.StdId : RxHeader.ExtId;     // ID
+		  dlc = RxHeader.DLC;                                                     // DLC
+		  data[0] = RxData[0];                                                    // Data
+		  data[1] = RxData[1];
+		  data[2] = RxData[2];
+		  data[3] = RxData[3];
+		  data[4] = RxData[4];
+		  data[5] = RxData[5];
+		  data[6] = RxData[6];
+		  data[7] = RxData[7];
+		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); //LEDを点灯
+		  HAL_Delay(250); //250ms待つ
+		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); //LEDを消灯
+	  }
+  }
 
 /* USER CODE END 4 */
 
