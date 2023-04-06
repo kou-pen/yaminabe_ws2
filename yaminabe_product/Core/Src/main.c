@@ -460,12 +460,12 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, DIRECTION3_Pin|DIRECTION2_Pin|DIRECTION1_Pin|DIRECTION6_Pin
-                          |DIRECTION5_Pin|BRK6_Pin|PSB6_Pin|LED1_Pin
+                          |DIRECTION5_Pin|BRK6_Pin|PSB6A12_Pin|LED1_Pin
                           |LED2_Pin|LED3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, BRK1_Pin|PSB5_Pin|BRK5_Pin|BRK3_Pin
-                          |PSB4_Pin|BRK4_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, BRK1_Pin|PSB5_Pin|BRK5_Pin|PSB6_Pin
+                          |BRK3_Pin|PSB4_Pin|BRK4_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(DIRECTION4_GPIO_Port, DIRECTION4_Pin, GPIO_PIN_RESET);
@@ -486,20 +486,20 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pins : DIRECTION3_Pin DIRECTION2_Pin DIRECTION1_Pin DIRECTION6_Pin
-                           DIRECTION5_Pin BRK6_Pin PSB6_Pin LED1_Pin
+                           DIRECTION5_Pin BRK6_Pin PSB6A12_Pin LED1_Pin
                            LED2_Pin LED3_Pin */
   GPIO_InitStruct.Pin = DIRECTION3_Pin|DIRECTION2_Pin|DIRECTION1_Pin|DIRECTION6_Pin
-                          |DIRECTION5_Pin|BRK6_Pin|PSB6_Pin|LED1_Pin
+                          |DIRECTION5_Pin|BRK6_Pin|PSB6A12_Pin|LED1_Pin
                           |LED2_Pin|LED3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : BRK1_Pin PSB5_Pin BRK5_Pin BRK3_Pin
-                           PSB4_Pin BRK4_Pin */
-  GPIO_InitStruct.Pin = BRK1_Pin|PSB5_Pin|BRK5_Pin|BRK3_Pin
-                          |PSB4_Pin|BRK4_Pin;
+  /*Configure GPIO pins : BRK1_Pin PSB5_Pin BRK5_Pin PSB6_Pin
+                           BRK3_Pin PSB4_Pin BRK4_Pin */
+  GPIO_InitStruct.Pin = BRK1_Pin|PSB5_Pin|BRK5_Pin|PSB6_Pin
+                          |BRK3_Pin|PSB4_Pin|BRK4_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

@@ -91,16 +91,26 @@ void Error_Handler(void);
 #define PSB5_GPIO_Port GPIOB
 #define BRK5_Pin GPIO_PIN_2
 #define BRK5_GPIO_Port GPIOB
+#define pwm6_Pin GPIO_PIN_10
+#define pwm6_GPIO_Port GPIOB
+#define PSB6_Pin GPIO_PIN_12
+#define PSB6_GPIO_Port GPIOB
 #define BRK3_Pin GPIO_PIN_13
 #define BRK3_GPIO_Port GPIOB
 #define PSB4_Pin GPIO_PIN_14
 #define PSB4_GPIO_Port GPIOB
 #define BRK4_Pin GPIO_PIN_15
 #define BRK4_GPIO_Port GPIOB
+#define pwm1_Pin GPIO_PIN_8
+#define pwm1_GPIO_Port GPIOA
+#define pwm2_Pin GPIO_PIN_9
+#define pwm2_GPIO_Port GPIOA
+#define pwm3_Pin GPIO_PIN_10
+#define pwm3_GPIO_Port GPIOA
 #define BRK6_Pin GPIO_PIN_11
 #define BRK6_GPIO_Port GPIOA
-#define PSB6_Pin GPIO_PIN_12
-#define PSB6_GPIO_Port GPIOA
+#define PSB6A12_Pin GPIO_PIN_12
+#define PSB6A12_GPIO_Port GPIOA
 #define LED1_Pin GPIO_PIN_13
 #define LED1_GPIO_Port GPIOA
 #define LED2_Pin GPIO_PIN_14
@@ -111,6 +121,10 @@ void Error_Handler(void);
 #define DIRECTION4_GPIO_Port GPIOD
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
+#define pwm4_Pin GPIO_PIN_8
+#define pwm4_GPIO_Port GPIOB
+#define pwm5_Pin GPIO_PIN_9
+#define pwm5_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 
