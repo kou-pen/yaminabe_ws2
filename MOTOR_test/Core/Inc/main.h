@@ -69,6 +69,8 @@ void Error_Handler(void);
 #define BRK2_GPIO_Port GPIOC
 #define BATT_Pin GPIO_PIN_3
 #define BATT_GPIO_Port GPIOC
+#define DIRECTION3_Pin GPIO_PIN_0
+#define DIRECTION3_GPIO_Port GPIOA
 #define DIRECTION2_Pin GPIO_PIN_1
 #define DIRECTION2_GPIO_Port GPIOA
 #define USART_TX_Pin GPIO_PIN_2

@@ -99,14 +99,25 @@ int main(void)
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
 
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
 
+	  HAL_GPIO_WritePin(GPIOC,PSB1_Pin,GPIO_PIN_SET);
+	  HAL_GPIO_WritePin(GPIOB,BRK1_Pin,GPIO_PIN_RESET);
+	  HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_SET);
+	  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,60000);
+	  HAL_Delay(1000);
+	  HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_RESET);
+	  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,30000);
+	  HAL_Delay(1000);
+
+
+    /* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

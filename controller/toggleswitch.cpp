@@ -23,9 +23,8 @@ void main(void){
         vec_data[i] = data[i+4];
     }
 
-    bool arr_equal = std::equal(vec_data.cbegin(), vec_data.cend(), vec_old_data.cbegin());　//旧ボタンデータと新ボタンデータを比較
 
-    if not arr_equal{ //等しくない場合に切り替え操作
+    if (!std::equal(vec_data.cbegin(), vec_data.cend(), vec_old_data.cbegin()))　{ //等しくない場合に切り替え操作
         switch_nom = judge_switch(vec_data,vec_old_data); //変更されたスイッチの番号を取得
         toggle_prog(switch_nom); //スイッチ番号を渡してプログラムを実行
         vec_old_data = vec_data; //旧ボタンデータとして登録
