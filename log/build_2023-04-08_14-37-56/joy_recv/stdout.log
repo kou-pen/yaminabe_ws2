@@ -1,0 +1,38 @@
+running egg_info
+creating ../build/joy_recv/joy_recv.egg-info
+writing ../build/joy_recv/joy_recv.egg-info/PKG-INFO
+writing dependency_links to ../build/joy_recv/joy_recv.egg-info/dependency_links.txt
+writing entry points to ../build/joy_recv/joy_recv.egg-info/entry_points.txt
+writing requirements to ../build/joy_recv/joy_recv.egg-info/requires.txt
+writing top-level names to ../build/joy_recv/joy_recv.egg-info/top_level.txt
+writing manifest file '../build/joy_recv/joy_recv.egg-info/SOURCES.txt'
+reading manifest file '../build/joy_recv/joy_recv.egg-info/SOURCES.txt'
+writing manifest file '../build/joy_recv/joy_recv.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/kohki/yaminabe_ws/build/joy_recv/build
+creating /home/kohki/yaminabe_ws/build/joy_recv/build/lib
+creating /home/kohki/yaminabe_ws/build/joy_recv/build/lib/joy_recv
+copying joy_recv/__init__.py -> /home/kohki/yaminabe_ws/build/joy_recv/build/lib/joy_recv
+copying joy_recv/joy_recv.py -> /home/kohki/yaminabe_ws/build/joy_recv/build/lib/joy_recv
+copying joy_recv/UsbCan.py -> /home/kohki/yaminabe_ws/build/joy_recv/build/lib/joy_recv
+running install
+running install_lib
+creating /home/kohki/yaminabe_ws/install/joy_recv/lib/python3.10/site-packages/joy_recv
+copying /home/kohki/yaminabe_ws/build/joy_recv/build/lib/joy_recv/__init__.py -> /home/kohki/yaminabe_ws/install/joy_recv/lib/python3.10/site-packages/joy_recv
+copying /home/kohki/yaminabe_ws/build/joy_recv/build/lib/joy_recv/joy_recv.py -> /home/kohki/yaminabe_ws/install/joy_recv/lib/python3.10/site-packages/joy_recv
+copying /home/kohki/yaminabe_ws/build/joy_recv/build/lib/joy_recv/UsbCan.py -> /home/kohki/yaminabe_ws/install/joy_recv/lib/python3.10/site-packages/joy_recv
+byte-compiling /home/kohki/yaminabe_ws/install/joy_recv/lib/python3.10/site-packages/joy_recv/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/kohki/yaminabe_ws/install/joy_recv/lib/python3.10/site-packages/joy_recv/joy_recv.py to joy_recv.cpython-310.pyc
+byte-compiling /home/kohki/yaminabe_ws/install/joy_recv/lib/python3.10/site-packages/joy_recv/UsbCan.py to UsbCan.cpython-310.pyc
+running install_data
+creating /home/kohki/yaminabe_ws/install/joy_recv/share/ament_index
+creating /home/kohki/yaminabe_ws/install/joy_recv/share/ament_index/resource_index
+creating /home/kohki/yaminabe_ws/install/joy_recv/share/ament_index/resource_index/packages
+copying resource/joy_recv -> /home/kohki/yaminabe_ws/install/joy_recv/share/ament_index/resource_index/packages
+copying package.xml -> /home/kohki/yaminabe_ws/install/joy_recv/share/joy_recv
+running install_egg_info
+Copying ../build/joy_recv/joy_recv.egg-info to /home/kohki/yaminabe_ws/install/joy_recv/lib/python3.10/site-packages/joy_recv-0.0.0-py3.10.egg-info
+running install_scripts
+Installing joy_recver script to /home/kohki/yaminabe_ws/install/joy_recv/lib/joy_recv
+writing list of installed files to '/home/kohki/yaminabe_ws/build/joy_recv/install.log'

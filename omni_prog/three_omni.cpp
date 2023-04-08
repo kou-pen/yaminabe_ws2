@@ -20,7 +20,7 @@ HAL_GPIO_WritePin(GPIOB,BRK3_Pin,GPIO_PIN_RESET);
 
 
 void WE_3(int Vx,int Vy,int Vr,float* motor_pwm){
-    std::vector<std::vector<float>> motor_arr{
+    std::array<std::array<float,3>,3> motor_arr{
         {{-1,0,-1}},
         {{1/2,sqrt(3)/-2,-1}},
         {{1/2,sqrt(3)/2,-1}},

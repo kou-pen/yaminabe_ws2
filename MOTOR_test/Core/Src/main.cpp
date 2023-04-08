@@ -596,6 +596,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 		  }
 		  else{
 			  HAL_GPIO_WritePin(GPIOA,DIRECTION3_Pin,GPIO_PIN_SET);
+
 		  }
 
 

@@ -1,0 +1,24 @@
+[0.383s] Invoking command in '/home/kohki/yaminabe_ws/joy-recv-py': PYTHONPATH=/home/kohki/yaminabe_ws/build/joy_recv/prefix_override:/home/kohki/yaminabe_ws/install/joy_recv/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/joy_recv build --build-base /home/kohki/yaminabe_ws/build/joy_recv/build install --record /home/kohki/yaminabe_ws/build/joy_recv/install.log --single-version-externally-managed
+[0.541s] running egg_info
+[0.541s] writing ../build/joy_recv/joy_recv.egg-info/PKG-INFO
+[0.541s] writing dependency_links to ../build/joy_recv/joy_recv.egg-info/dependency_links.txt
+[0.541s] writing entry points to ../build/joy_recv/joy_recv.egg-info/entry_points.txt
+[0.541s] writing requirements to ../build/joy_recv/joy_recv.egg-info/requires.txt
+[0.541s] writing top-level names to ../build/joy_recv/joy_recv.egg-info/top_level.txt
+[0.543s] reading manifest file '../build/joy_recv/joy_recv.egg-info/SOURCES.txt'
+[0.543s] writing manifest file '../build/joy_recv/joy_recv.egg-info/SOURCES.txt'
+[0.543s] running build
+[0.543s] running build_py
+[0.543s] copying joy_recv/joy_recv.py -> /home/kohki/yaminabe_ws/build/joy_recv/build/lib/joy_recv
+[0.543s] running install
+[0.544s] running install_lib
+[0.544s] copying /home/kohki/yaminabe_ws/build/joy_recv/build/lib/joy_recv/joy_recv.py -> /home/kohki/yaminabe_ws/install/joy_recv/lib/python3.10/site-packages/joy_recv
+[0.545s] byte-compiling /home/kohki/yaminabe_ws/install/joy_recv/lib/python3.10/site-packages/joy_recv/joy_recv.py to joy_recv.cpython-310.pyc
+[0.545s] running install_data
+[0.546s] running install_egg_info
+[0.547s] removing '/home/kohki/yaminabe_ws/install/joy_recv/lib/python3.10/site-packages/joy_recv-0.0.0-py3.10.egg-info' (and everything under it)
+[0.547s] Copying ../build/joy_recv/joy_recv.egg-info to /home/kohki/yaminabe_ws/install/joy_recv/lib/python3.10/site-packages/joy_recv-0.0.0-py3.10.egg-info
+[0.547s] running install_scripts
+[0.561s] Installing joy_recver script to /home/kohki/yaminabe_ws/install/joy_recv/lib/joy_recv
+[0.561s] writing list of installed files to '/home/kohki/yaminabe_ws/build/joy_recv/install.log'
+[0.581s] Invoked command in '/home/kohki/yaminabe_ws/joy-recv-py' returned '0': PYTHONPATH=/home/kohki/yaminabe_ws/build/joy_recv/prefix_override:/home/kohki/yaminabe_ws/install/joy_recv/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/joy_recv build --build-base /home/kohki/yaminabe_ws/build/joy_recv/build install --record /home/kohki/yaminabe_ws/build/joy_recv/install.log --single-version-externally-managed
