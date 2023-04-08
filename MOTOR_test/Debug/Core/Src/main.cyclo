@@ -6,11 +6,11 @@ main.cpp:379:13:void MX_TIM2_Init()	8
 main.cpp:446:13:void MX_USART2_UART_Init()	2
 main.cpp:479:13:void MX_GPIO_Init()	1
 main.cpp:556:6:void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef*)	16
-main.cpp:645:5:int _write(int, char*, int)	1
-main.cpp:651:6:void toggle_switch(std::array<int, 4>&)	7
+main.cpp:644:5:int _write(int, char*, int)	1
+main.cpp:650:6:void toggle_switch(std::array<int, 4>&)	8
 main.cpp:691:6:void emergency_prog()	1
-main.cpp:695:6:void recovery_prog()	1
-main.cpp:705:6:void Error_Handler()	1
+main.cpp:697:6:void recovery_prog()	1
+main.cpp:708:6:void Error_Handler()	1
 array:185:7:std::array<_Tp, _Nm>::value_type& std::array<_Tp, _Nm>::operator[](std::array<_Tp, _Nm>::size_type) [with _Tp = int; unsigned int _Nm = 8]	1
 array:185:7:std::array<_Tp, _Nm>::value_type& std::array<_Tp, _Nm>::operator[](std::array<_Tp, _Nm>::size_type) [with _Tp = int; unsigned int _Nm = 4]	1
 array:282:5:bool std::operator!=(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&) [with _Tp = int; unsigned int _Nm = 4]	1

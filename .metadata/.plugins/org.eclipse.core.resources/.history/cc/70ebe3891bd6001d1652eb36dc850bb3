@@ -690,13 +690,11 @@ void toggle_switch(std::array<int,4>& arr){
 
 void emergency_prog(void){
 	  //HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
-	//ALL_PSB_ON
 	;
 }
 
 void recovery_prog(void){
 	  //HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
-	//ALL_PSB_OFF
 	;
 }
 /* USER CODE END 4 */

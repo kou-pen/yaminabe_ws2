@@ -582,19 +582,19 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 				recovery_prog();
 
 
-				if (std::abs(data[0]) <= 5){ //perfect stop
+				if (data[0] == 0){ //perfect stop
 				  HAL_GPIO_WritePin(GPIOB,BRK1_Pin,GPIO_PIN_SET);
 				}
 				else{
 				  HAL_GPIO_WritePin(GPIOB,BRK1_Pin,GPIO_PIN_RESET);
 				}
-				if (std::abs(data[1]) <= 5){
+				if (data[1] == 0){
 				  HAL_GPIO_WritePin(GPIOC,BRK2_Pin,GPIO_PIN_SET);
 				}
 				else{
 				  HAL_GPIO_WritePin(GPIOC,BRK2_Pin,GPIO_PIN_RESET);
 				}
-				if (std::abs(data[2]) <= 5){
+				if (data[2] == 0){
 				  HAL_GPIO_WritePin(GPIOB,BRK3_Pin,GPIO_PIN_SET);
 				}
 				else{
@@ -624,6 +624,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 				}
 				else{
 				  HAL_GPIO_WritePin(GPIOA,DIRECTION3_Pin,GPIO_PIN_SET);
+
 				}
 
 				__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,data[0] * 500);
@@ -672,17 +673,16 @@ void toggle_switch(std::array<int,4>& arr){
 	}
 	else if (arr[2] == 0){//RELOAD_KEEP
 		//BRK_ON & KEEP
-		HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
+		;
 	}
 	if(arr[3] == 1){//SHOOT
 		//BRK_OFF
 		//
-		//HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
-
+		HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
 	}
 	else if (arr[3] == 0){//SHOOT_STOP
 		//BRK_ON & KEEP
-		//HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
+		;
 	}
 }
 
@@ -690,13 +690,11 @@ void toggle_switch(std::array<int,4>& arr){
 
 void emergency_prog(void){
 	  //HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
-	//ALL_PSB_ON
 	;
 }
 
 void recovery_prog(void){
 	  //HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
-	//ALL_PSB_OFF
 	;
 }
 /* USER CODE END 4 */
