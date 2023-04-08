@@ -690,7 +690,6 @@ void toggle_switch(std::array<int,4>& arr){
 
 void emergency_prog(void){
 	  //HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
-	;
 }
 
 void recovery_prog(void){

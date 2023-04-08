@@ -6550,3 +6550,134 @@ Finished building: default.size.stdout
  
 Finished building: MOTOR_test.list
  
+23:26:11 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp:78:1: error: expected initializer before 'typedef'
+   78 | typedef enum{ //enum classのがいいのかな？
+      | ^~~~~~~
+../Core/Src/main.cpp:84:2: error: 'status_t' does not name a type
+   84 | }status_t;
+      |  ^~~~~~~~
+../Core/Src/main.cpp: In function 'void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef*)':
+../Core/Src/main.cpp:642:6: error: 'toggle_switch' was not declared in this scope
+  642 |      toggle_switch(arr_data);
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.cpp: In function 'void toggle_switch(std::array<int, 4>&)':
+../Core/Src/main.cpp:659:5: error: 'array' was not declared in this scope; did you mean 'std::array'?
+  659 |  if(array[0] == 1){//COLLECT_PLUS
+      |     ^~~~~
+      |     std::array
+In file included from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: 'std::array' declared here
+   94 |     struct array
+      |            ^~~~~
+../Core/Src/main.cpp:668:5: error: 'array' was not declared in this scope; did you mean 'std::array'?
+  668 |  if(array[1] == 1){//COLLECT_MINUS
+      |     ^~~~~
+      |     std::array
+In file included from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: 'std::array' declared here
+   94 |     struct array
+      |            ^~~~~
+../Core/Src/main.cpp:677:5: error: 'array' was not declared in this scope; did you mean 'std::array'?
+  677 |  if(array[2] == 1){//RELOAD_START
+      |     ^~~~~
+      |     std::array
+In file included from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: 'std::array' declared here
+   94 |     struct array
+      |            ^~~~~
+../Core/Src/main.cpp:685:5: error: 'array' was not declared in this scope; did you mean 'std::array'?
+  685 |  if(array[3] == 1){//SHOOT
+      |     ^~~~~
+      |     std::array
+In file included from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: 'std::array' declared here
+   94 |     struct array
+      |            ^~~~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+23:26:32 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp:78:1: error: expected initializer before 'typedef'
+   78 | typedef enum{ //enum classのがいいのかな？
+      | ^~~~~~~
+../Core/Src/main.cpp:84:2: error: 'status_t' does not name a type
+   84 | }status_t;
+      |  ^~~~~~~~
+../Core/Src/main.cpp: In function 'void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef*)':
+../Core/Src/main.cpp:642:6: error: 'toggle_switch' was not declared in this scope
+  642 |      toggle_switch(arr_data);
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.cpp: In function 'void toggle_switch(std::array<int, 4>&)':
+../Core/Src/main.cpp:664:11: error: 'array' was not declared in this scope; did you mean 'std::array'?
+  664 |  else if (array[0] == 0){//COLLECT_STOP
+      |           ^~~~~
+      |           std::array
+In file included from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: 'std::array' declared here
+   94 |     struct array
+      |            ^~~~~
+../Core/Src/main.cpp:673:11: error: 'array' was not declared in this scope; did you mean 'std::array'?
+  673 |  else if (array[1] == 0){//COLLECT_STOP
+      |           ^~~~~
+      |           std::array
+In file included from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: 'std::array' declared here
+   94 |     struct array
+      |            ^~~~~
+../Core/Src/main.cpp:681:11: error: 'array' was not declared in this scope; did you mean 'std::array'?
+  681 |  else if (array[2] == 0){//RELOAD_KEEP
+      |           ^~~~~
+      |           std::array
+In file included from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: 'std::array' declared here
+   94 |     struct array
+      |            ^~~~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+23:28:06 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp:78:1: error: expected initializer before 'typedef'
+   78 | typedef enum{ //enum classのがいいのかな？
+      | ^~~~~~~
+../Core/Src/main.cpp:84:2: error: 'status_t' does not name a type
+   84 | }status_t;
+      |  ^~~~~~~~
+../Core/Src/main.cpp: In function 'void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef*)':
+../Core/Src/main.cpp:642:6: error: 'toggle_switch' was not declared in this scope
+  642 |      toggle_switch(arr_data);
+      |      ^~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+23:28:37 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "MOTOR_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/MOTOR_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MOTOR_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MOTOR_test.elf
+ 
+arm-none-eabi-size   MOTOR_test.elf 
+arm-none-eabi-objdump -h -S  MOTOR_test.elf  > "MOTOR_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  22300	    120	   1880	  24300	   5eec	MOTOR_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: MOTOR_test.list
+ 
+23:30:07 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "MOTOR_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/MOTOR_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MOTOR_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MOTOR_test.elf
+ 
+arm-none-eabi-size   MOTOR_test.elf 
+arm-none-eabi-objdump -h -S  MOTOR_test.elf  > "MOTOR_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  22280	    120	   1880	  24280	   5ed8	MOTOR_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: MOTOR_test.list
+ 

@@ -73,8 +73,15 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan);
 int _write(int file, char *ptr, int len);
 void emergency_prog(void);
 void recovery_prog(void);
-void toggle_switch(std::array<int,4>& arr);
+void toggle_switch(std::array<int,4>& arr)
 
+typedef enum{ //enum classのがいいのかな？
+    STATUS_ERROR,
+    RELOAD,
+    SHOOT,
+    BELT_POSITIVE,
+    BELT_NEGATIVE,
+}status_t;
 
 /* USER CODE END 0 */
 
@@ -689,13 +696,11 @@ void toggle_switch(std::array<int,4>& arr){
 
 
 void emergency_prog(void){
-	  //HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
-	;
+	  HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
 }
 
 void recovery_prog(void){
-	  //HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
-	;
+	  HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
 }
 /* USER CODE END 4 */
 
