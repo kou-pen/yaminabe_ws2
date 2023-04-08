@@ -50,7 +50,7 @@ void toggle_prog(int flag){
             break;
         case BELT_NEGATIVE:
             break;
-        case ERROR;
+        case ERROR:
             break;
     }
 }

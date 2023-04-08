@@ -106,11 +106,7 @@ int main(void)
 	  filter.FilterActivation     = ENABLE;                   // フィルター無効／有効
 
   HAL_CAN_ConfigFilter(&hcan2, &filter);
-
-  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); //LEDを点灯 初期化確認
-  HAL_Delay(500); //500ms待つ
-  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); //LEDを消灯
-  printf("start\n");
+  printf("Hello,World\n");
 
   HAL_CAN_Start(&hcan2);
   // 割り込み有効
@@ -122,7 +118,10 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  HAL_GPIO_WritePin(GPIOA,LED1_Pin,GPIO_PIN_RESET);
+	  HAL_GPIO_WritePin(GPIOA,LED2_Pin,GPIO_PIN_RESET);
+	  HAL_GPIO_WritePin(GPIOA,LED3_Pin,GPIO_PIN_RESET);
+	  printf("OK");
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -270,7 +269,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LD2_Pin|LED1_Pin|LED2_Pin|LED3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : B1_Pin */
   GPIO_InitStruct.Pin = B1_Pin;
@@ -278,12 +277,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : LD2_Pin */
-  GPIO_InitStruct.Pin = LD2_Pin;
+  /*Configure GPIO pins : LD2_Pin LED1_Pin LED2_Pin LED3_Pin */
+  GPIO_InitStruct.Pin = LD2_Pin|LED1_Pin|LED2_Pin|LED3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
@@ -324,6 +323,8 @@ static void MX_GPIO_Init(void)
     HAL_UART_Transmit(&huart2,(uint8_t *)ptr,len,10);
     return len;
   }
+
+
 /* USER CODE END 4 */
 
 /**

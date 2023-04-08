@@ -23,39 +23,34 @@ class JoyRecv(Node):
     
     def callback(self, joy):
         buttondata = [0] * 8
+        buttondata[0] = joy.axes[0] * 127 + 128 #0~256
+        buttondata[1] = joy.axes[1] * 127 + 128
+        buttondata[2] = joy.axes[3] * 127 + 128
+        buttondata[3] = joy.axes[4] * 127 + 128 
+        buttondata[4] = joy.buttons[0]
+        buttondata[5] = joy.buttons[1]
+        buttondata[6] = joy.buttons[2]
+        buttondata[7] = joy.buttons[3]
+        
         if joy.buttons[8] == 1 and joy.buttons[7] == 0:
             self.emergency_stop = 1
         elif joy.buttons[8] == 1 and joy.buttons[7] == 1:
             self.emergency_stop = 1
         elif joy.buttons[8] == 0 and joy.buttons[7] == 1:
             self.emergency_stop = 0
-            self.get_logger().info("recovered")
+            self.error_status = "recovered"
         else:
             pass
-            
-        if self.emergency_stop == 1 :
-            self.error_status = "emergency stop"
-            buttondata[0] = 128
-            buttondata[1] = 128
-            buttondata[2] = 128
-            buttondata[3] = 128
-            buttondata[4] = 0
-            buttondata[5] = 0
-            buttondata[6] = 0
-            buttondata[7] = 0
-            
-            
-        elif self.emergency_stop == 0:
+        
+        if self.emergency_stop == 1:
+            joy.buttons[4] = 2 
+            joy.buttons[5] = 2 
+            joy.buttons[6] = 2 
+            joy.buttons[7] = 2 
+            self.error_status = "emergency"
+        else:
             self.error_status = "normal"
-            buttondata[0] = joy.axes[0] * 127 + 128 #0~256
-            buttondata[1] = joy.axes[1] * 127 + 128
-            buttondata[2] = joy.axes[3] * 127 + 128
-            buttondata[3] = joy.axes[4] * 127 + 128 
-            buttondata[4] = joy.buttons[0]
-            buttondata[5] = joy.buttons[1]
-            buttondata[6] = joy.buttons[2]
-            buttondata[7] = joy.buttons[3]
-
+            
         self.get_logger().info(self.error_status)
         msg = can.Message(arbitration_id=0x001,
                     is_extended_id= False,

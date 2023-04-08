@@ -1965,6 +1965,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
  8000fa6:	2101      	movs	r1, #1
  8000fa8:	481c      	ldr	r0, [pc, #112]	; (800101c <HAL_CAN_RxFifo0MsgPendingCallback+0x310>)
  8000faa:	f001 fb9d 	bl	80026e8 <HAL_GPIO_WritePin>
+
 		  }
 
 

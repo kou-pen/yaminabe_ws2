@@ -6,7 +6,7 @@ main.cpp:361:13:void MX_TIM2_Init()	8
 main.cpp:428:13:void MX_USART2_UART_Init()	2
 main.cpp:461:13:void MX_GPIO_Init()	1
 main.cpp:538:6:void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef*)	9
-main.cpp:610:5:int _write(int, char*, int)	1
-main.cpp:621:6:void Error_Handler()	1
+main.cpp:611:5:int _write(int, char*, int)	1
+main.cpp:622:6:void Error_Handler()	1
 array:185:7:std::array<_Tp, _Nm>::value_type& std::array<_Tp, _Nm>::operator[](std::array<_Tp, _Nm>::size_type) [with _Tp = int; unsigned int _Nm = 8]	1
 array:55:7:static constexpr _Tp& std::__array_traits<_Tp, _Nm>::_S_ref(const _Tp (&)[_Nm], std::size_t) [with _Tp = int; unsigned int _Nm = 8]	1

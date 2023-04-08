@@ -1,16 +1,10 @@
-19:57:01 **** Build of configuration Debug for project CAN_test2 ****
+18:45:36 **** Incremental Build of configuration Debug for project CAN_test2 ****
 make -j12 all 
-arm-none-eabi-g++ -o "CAN_test2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/CAN_test2/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_test2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: CAN_test2.elf
- 
 arm-none-eabi-size   CAN_test2.elf 
-arm-none-eabi-objdump -h -S  CAN_test2.elf  > "CAN_test2.list"
    text	   data	    bss	    dec	    hex	filename
-  18060	    120	   1712	  19892	   4db4	CAN_test2.elf
+  17972	    120	   1712	  19804	   4d5c	CAN_test2.elf
 Finished building: default.size.stdout
  
-Finished building: CAN_test2.list
- 
 
-19:57:02 Build Finished. 0 errors, 0 warnings. (took 231ms)
+18:45:36 Build Finished. 0 errors, 0 warnings. (took 178ms)
 

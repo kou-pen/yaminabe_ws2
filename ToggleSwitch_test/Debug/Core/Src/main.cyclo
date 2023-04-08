@@ -1,0 +1,7 @@
+main.cpp:69:5:int main()	1
+main.cpp:132:6:void SystemClock_Config()	4
+main.cpp:187:13:void MX_CAN2_Init()	2
+main.cpp:224:13:void MX_USART2_UART_Init()	2
+main.cpp:257:13:void MX_GPIO_Init()	1
+main.cpp:290:5:int _write(int, char*, int)	1
+main.cpp:301:6:void Error_Handler()	1
