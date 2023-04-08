@@ -73,7 +73,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan);
 int _write(int file, char *ptr, int len);
 void emergency_prog(void);
 void recovery_prog(void);
-void toggle_switch(std::array<int,4>& arr);
+void toggle_switch(std::array<int,5>& arr);
 
 
 /* USER CODE END 0 */
@@ -557,8 +557,8 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
 	  uint8_t RxData[8];
 	  CAN_RxHeaderTypeDef RxHeader;
-	  std::array<int,4> arr_data;
-	  std::array<int,4> arr_old_data;
+	  std::array<int,5> arr_data;
+	  std::array<int,5> arr_old_data;
 	  //int last_hat;
 
 	  if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
@@ -568,15 +568,15 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 		  data[0] = RxData[0] - 128;                                                    // Data
 		  data[1] = RxData[1] - 128;
 		  data[2] = RxData[2] - 128;
-		  data[3] = RxData[3] - 128;
-		  data[4] = RxData[4];
-		  data[5] = RxData[5];
-		  data[6] = RxData[6];
-		  data[7] = RxData[7];
+		  data[3] = RxData[3];//A
+		  data[4] = RxData[4];//B
+		  data[5] = RxData[5];//X
+		  data[6] = RxData[6];//Y
+		  data[7] = RxData[7];//HAT
 		  //printf("%d %d %d %d %d %d %d %d\n",data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7]);
 
-			for(int i = 0;i < 4;i++){
-				arr_data[i] = data[i+4];
+			for(int i = 0;i < 5;i++){
+				arr_data[i] = data[i+3];
 			}
 			if (arr_data[0] <= 1 or arr_data[1] <= 1 or arr_data[2] <= 1 or arr_data[3] <= 1){
 				recovery_prog();
@@ -600,7 +600,8 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 				else{
 				  HAL_GPIO_WritePin(GPIOB,BRK3_Pin,GPIO_PIN_RESET);
 				}
-
+				//OMNI_3
+				//data[0] < 0 じゃなくする
 
 				if (data[0] < 0){
 				  HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_RESET);
@@ -647,7 +648,7 @@ int _write(int file, char *ptr, int len)
   return len;
 }
 
-void toggle_switch(std::array<int,4>& arr){
+void toggle_switch(std::array<int,5>& arr){
 	if(arr[0] == 1){//COLLECT_PLUS
 		//BRK_OFF
 		//PLUS
@@ -660,33 +661,40 @@ void toggle_switch(std::array<int,4>& arr){
 	if(arr[1] == 1){//COLLECT_MINUS
 		//BRK_OFF
 		//MINUS
-		HAL_GPIO_WritePin(GPIOA, LED2_Pin, GPIO_PIN_SET);
+		//HAL_GPIO_WritePin(GPIOA, LED2_Pin, GPIO_PIN_SET);
 	}
 	else if (arr[1] == 0){//COLLECT_STOP
 		//BRK_ON
-		HAL_GPIO_WritePin(GPIOA, LED2_Pin, GPIO_PIN_RESET);
+		//HAL_GPIO_WritePin(GPIOA, LED2_Pin, GPIO_PIN_RESET);
 	}
 	if(arr[2] == 1){//RELOAD_START
 		//BRK_OFF
-		HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
+		//HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
 	}
 	else if (arr[2] == 0){//RELOAD_KEEP
 		//BRK_ON & KEEP
-		HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
+		//HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
 	}
 	if(arr[3] == 1){//SHOOT
 		//BRK_OFF
-		//
-		//HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
-
 	}
 	else if (arr[3] == 0){//SHOOT_STOP
 		//BRK_ON & KEEP
-		//HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
+	}
+	if(arr[4] == 2){//DEG_UP
+		//BRK_OFF & PLUS
+		HAL_GPIO_WritePin(GPIOA, LED2_Pin, GPIO_PIN_SET);
+	}
+	else if (arr[4] == 1){//DEG_KEEP
+		//BRK_ON & KEEP
+		HAL_GPIO_WritePin(GPIOA, LED2_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
+	}
+	else if (arr[4] == 0){//DEG_DOWN
+		//BRK_OFF & MINUS
+		HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
 	}
 }
-
-
 
 void emergency_prog(void){
 	  //HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
