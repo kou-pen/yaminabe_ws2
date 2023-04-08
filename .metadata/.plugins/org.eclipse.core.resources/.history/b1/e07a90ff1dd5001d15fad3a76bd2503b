@@ -22,6 +22,11 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
+#include <stdlib.h>
+
+#include <algorithm>
+#include <array>
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -65,6 +70,18 @@ static void MX_CAN2_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan);
+int _write(int file, char *ptr, int len);
+
+typedef enum{ //enum classのがいいのかな？
+    STATUS_T_ERROR,
+    RELOAD,
+    SHOOT,
+    BELT_POSITIVE,
+    BELT_NEGATIVE,
+}status_t;
+
+std::array<int,4> vec_data;
+std::array<int,4> vec_old_data;
 /* USER CODE END 0 */
 
 /**
@@ -75,6 +92,7 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 	setbuf(stdout, NULL);
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -116,12 +134,21 @@ HAL_CAN_ConfigFilter(&hcan2, &filter);
 
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
-
-  printf("start\n");
-
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
   HAL_CAN_Start(&hcan2);
   // 割り込み有効
   HAL_CAN_ActivateNotification(&hcan2, CAN_IT_RX_FIFO0_MSG_PENDING);
+  printf("start\n");
+
+  HAL_GPIO_WritePin(GPIOC,PSB1_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOB,BRK1_Pin,GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC,PSB2_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOC,BRK2_Pin,GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC,PSB3_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOB,BRK3_Pin,GPIO_PIN_RESET);
+
+
+
 
   /* USER CODE END 2 */
 
@@ -129,7 +156,7 @@ HAL_CAN_ConfigFilter(&hcan2, &filter);
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
+/*
 	  HAL_GPIO_WritePin(GPIOC,PSB1_Pin,GPIO_PIN_SET);
 	  HAL_GPIO_WritePin(GPIOB,BRK1_Pin,GPIO_PIN_RESET);
 	  HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_SET);
@@ -138,8 +165,7 @@ HAL_CAN_ConfigFilter(&hcan2, &filter);
 	  HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_RESET);
 	  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,30000);
 	  HAL_Delay(1000);
-
-
+	  */
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -467,7 +493,47 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+uint32_t id;
+uint32_t dlc;
+std::array<int,8> data;
 
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
+{
+	  uint8_t RxData[8];
+	  CAN_RxHeaderTypeDef RxHeader;
+
+	  if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
+	  {
+		  id = (RxHeader.IDE == CAN_ID_STD)? RxHeader.StdId : RxHeader.ExtId;     // ID
+		  dlc = RxHeader.DLC;                                                     // DLC
+		  data[0] = RxData[0] - 128;                                                    // Data
+		  data[1] = RxData[1] - 128;
+		  data[2] = RxData[2] - 128;
+		  data[3] = RxData[3] - 128;
+		  data[4] = RxData[4];
+		  data[5] = RxData[5];
+		  data[6] = RxData[6];
+		  data[7] = RxData[7];
+		  printf("%d %d %d %d %d %d %d %d\n",data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7]);
+
+		  if (data[0] < 0){
+			  HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_RESET);
+			  data[0] *= -1;
+		  }
+		  else{
+			  HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_SET);
+		  }
+		  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,data[0] * 1000);
+
+
+	  }
+}
+
+int _write(int file, char *ptr, int len)
+{
+  HAL_UART_Transmit(&huart2,(uint8_t *)ptr,len,10);
+  return len;
+}
 /* USER CODE END 4 */
 
 /**

@@ -19,7 +19,7 @@ HAL_GPIO_WritePin(GPIOC,PSB3_Pin,GPIO_PIN_SET);
 HAL_GPIO_WritePin(GPIOB,BRK3_Pin,GPIO_PIN_RESET);
 
 
-float WE_3(int Vx,int Vy,int Vr,float* motor_pwm){
+void WE_3(int Vx,int Vy,int Vr,float* motor_pwm){
     std::vector<std::vector<float>> motor_arr{
         {{-1,0,-1}},
         {{1/2,sqrt(3)/-2,-1}},
@@ -33,7 +33,6 @@ float WE_3(int Vx,int Vy,int Vr,float* motor_pwm){
         //HAL_GPIOでDIRECTION_PINを操作
         motor_pwm[0] *= -1.0;
         HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_RESET);
-        i++;
     }
     else{
         HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_SET);
@@ -42,7 +41,6 @@ float WE_3(int Vx,int Vy,int Vr,float* motor_pwm){
         //HAL_GPIOでDIRECTION_PINを操作
         motor_pwm[1] *= -1.0;
         HAL_GPIO_WritePin(GPIOA,DIRECTION2_Pin,GPIO_PIN_RESET);
-        i++;
     }
     else{
         HAL_GPIO_WritePin(GPIOA,DIRECTION2_Pin,GPIO_PIN_SET);
@@ -51,15 +49,13 @@ float WE_3(int Vx,int Vy,int Vr,float* motor_pwm){
         //HAL_GPIOでDIRECTION_PINを操作
         motor_pwm[1] *= -1.0;
         HAL_GPIO_WritePin(GPIOA,DIRECTION3_Pin,GPIO_PIN_RESET);
-        i++;
     }
     else{
         HAL_GPIO_WritePin(GPIOA,DIRECTION3_Pin,GPIO_PIN_SET);
     }
-    return *motor_pwm;
 }
 
-int make_deadzone(int* data,int deadzone){
+void make_deadzone(int* data,int deadzone){
     for(int i = 0;i < 3){
         if(data[i] < deadzone){
             data[i] = 0;
