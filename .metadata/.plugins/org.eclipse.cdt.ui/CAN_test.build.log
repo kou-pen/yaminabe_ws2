@@ -1,6 +1,10 @@
-21:44:46 **** Incremental Build of configuration Debug for project CAN_test ****
+22:44:41 **** Incremental Build of configuration Debug for project CAN_test ****
 make -j12 all 
 arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef*)':
+../Core/Src/main.cpp:331:8: warning: unused variable 'last_hat' [-Wunused-variable]
+  331 |    int last_hat;
+      |        ^~~~~~~~
 arm-none-eabi-g++ -o "CAN_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/CAN_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: CAN_test.elf
  
@@ -13,5 +17,5 @@ Finished building: default.size.stdout
 Finished building: CAN_test.list
  
 
-21:44:46 Build Finished. 0 errors, 0 warnings. (took 386ms)
+22:44:42 Build Finished. 0 errors, 1 warnings. (took 385ms)
 

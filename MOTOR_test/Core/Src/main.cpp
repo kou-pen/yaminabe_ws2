@@ -71,6 +71,18 @@ static void MX_CAN2_Init(void);
 /* USER CODE BEGIN 0 */
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan);
 int _write(int file, char *ptr, int len);
+int judge_switch(std::array<int,4>& new_arr,std::array<int,4>& old_arr); //FIXME:arrayにする
+void toggle_prog(int flag);
+void emergency_prog(void);
+void recovery_prog(void);
+
+typedef enum{ //enum classのがいいのかな？
+    STATUS_ERROR,
+    RELOAD,
+    SHOOT,
+    BELT_POSITIVE,
+    BELT_NEGATIVE,
+}status_t;
 
 /* USER CODE END 0 */
 
@@ -141,6 +153,19 @@ HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   HAL_GPIO_WritePin(GPIOC,PSB3_Pin,GPIO_PIN_SET);
   HAL_GPIO_WritePin(GPIOB,BRK3_Pin,GPIO_PIN_RESET);
 
+  HAL_GPIO_WritePin(GPIOA, LED1_Pin, GPIO_PIN_SET);
+  HAL_Delay(100);
+  HAL_GPIO_WritePin(GPIOA, LED2_Pin, GPIO_PIN_SET);
+  HAL_Delay(100);
+  HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
+  HAL_Delay(100);
+  HAL_GPIO_WritePin(GPIOA, LED1_Pin, GPIO_PIN_RESET);
+  HAL_Delay(100);
+  HAL_GPIO_WritePin(GPIOA, LED2_Pin, GPIO_PIN_RESET);
+  HAL_Delay(100);
+  HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
+  HAL_Delay(100);
+
   /*
   HAL_GPIO_WritePin(GPIOB,PSB4_Pin,GPIO_PIN_SET);
   HAL_GPIO_WritePin(GPIOB,BRK4_Pin,GPIO_PIN_SET);
@@ -162,6 +187,7 @@ HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
 /*
 	  HAL_GPIO_WritePin(GPIOC,PSB1_Pin,GPIO_PIN_SET);
 	  HAL_GPIO_WritePin(GPIOB,BRK1_Pin,GPIO_PIN_RESET);
@@ -539,6 +565,10 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
 	  uint8_t RxData[8];
 	  CAN_RxHeaderTypeDef RxHeader;
+	  int switch_nom;
+	  std::array<int,4> arr_data;
+	  std::array<int,4> arr_old_data;
+	  //int last_hat;
 
 	  if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
 	  {
@@ -552,59 +582,73 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 		  data[5] = RxData[5];
 		  data[6] = RxData[6];
 		  data[7] = RxData[7];
-		  printf("%d %d %d %d %d %d %d %d\n",data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7]);
+		  //printf("%d %d %d %d %d %d %d %d\n",data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7]);
 
-		  if (data[0] == 0){
-			  HAL_GPIO_WritePin(GPIOB,BRK1_Pin,GPIO_PIN_SET);
-		  }
-		  else{
-			  HAL_GPIO_WritePin(GPIOB,BRK1_Pin,GPIO_PIN_RESET);
-		  }
-		  if (data[1] == 0){
-			  HAL_GPIO_WritePin(GPIOC,BRK2_Pin,GPIO_PIN_SET);
-		  }
-		  else{
-			  HAL_GPIO_WritePin(GPIOC,BRK2_Pin,GPIO_PIN_RESET);
-		  }
-		  if (data[2] == 0){
-			  HAL_GPIO_WritePin(GPIOB,BRK3_Pin,GPIO_PIN_SET);
-		  }
-		  else{
-			  HAL_GPIO_WritePin(GPIOB,BRK3_Pin,GPIO_PIN_RESET);
-		  }
+			for(int i = 0;i < 4;i++){
+				arr_data[i] = data[i+4];
+			}
+			if (arr_data[0] <= 1 or arr_data[1] <= 1 or arr_data[2] <= 1 or arr_data[3] <= 1){
+				recovery_prog();
 
 
-		  if (data[0] < 0){
-			  HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_RESET);
-			  data[0] *= -1;
-		  }
-		  else{
-			  HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_SET);
-		  }
-
-		  if (data[1] < 0){
-			  HAL_GPIO_WritePin(GPIOA,DIRECTION2_Pin,GPIO_PIN_RESET);
-			  data[1] *= -1;
-		  }
-		  else{
-			  HAL_GPIO_WritePin(GPIOA,DIRECTION2_Pin,GPIO_PIN_SET);
-		  }
-
-		  if (data[2] < 0){
-			  HAL_GPIO_WritePin(GPIOA,DIRECTION3_Pin,GPIO_PIN_RESET);
-			  data[2] *= -1;
-		  }
-		  else{
-			  HAL_GPIO_WritePin(GPIOA,DIRECTION3_Pin,GPIO_PIN_SET);
-
-		  }
+				if (data[0] == 0){ //perfect stop
+				  HAL_GPIO_WritePin(GPIOB,BRK1_Pin,GPIO_PIN_SET);
+				}
+				else{
+				  HAL_GPIO_WritePin(GPIOB,BRK1_Pin,GPIO_PIN_RESET);
+				}
+				if (data[1] == 0){
+				  HAL_GPIO_WritePin(GPIOC,BRK2_Pin,GPIO_PIN_SET);
+				}
+				else{
+				  HAL_GPIO_WritePin(GPIOC,BRK2_Pin,GPIO_PIN_RESET);
+				}
+				if (data[2] == 0){
+				  HAL_GPIO_WritePin(GPIOB,BRK3_Pin,GPIO_PIN_SET);
+				}
+				else{
+				  HAL_GPIO_WritePin(GPIOB,BRK3_Pin,GPIO_PIN_RESET);
+				}
 
 
-		  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,data[0] * 500);
-		  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2,data[1] * 500);
-		  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,data[2] * 500);
+				if (data[0] < 0){
+				  HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_RESET);
+				  data[0] *= -1;
+				}
+				else{
+				  HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_SET);
+				}
 
+				if (data[1] < 0){
+				  HAL_GPIO_WritePin(GPIOA,DIRECTION2_Pin,GPIO_PIN_RESET);
+				  data[1] *= -1;
+				}
+				else{
+				  HAL_GPIO_WritePin(GPIOA,DIRECTION2_Pin,GPIO_PIN_SET);
+				}
 
+				if (data[2] < 0){
+				  HAL_GPIO_WritePin(GPIOA,DIRECTION3_Pin,GPIO_PIN_RESET);
+				  data[2] *= -1;
+				}
+				else{
+				  HAL_GPIO_WritePin(GPIOA,DIRECTION3_Pin,GPIO_PIN_SET);
+
+				}
+
+				__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,data[0] * 500);
+				__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2,data[1] * 500);
+				__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,data[2] * 500);
+
+				if (arr_data != arr_old_data) { //等しくない場合に切り替え操作
+					switch_nom = judge_switch(arr_data,arr_old_data); //変更されたスイッチの番号を取得
+					toggle_prog(switch_nom); //スイッチ番号を渡してプログラムを実行
+				}
+				arr_old_data = arr_data; //旧ボタンデータとして登録
+			}
+			else{
+				emergency_prog();
+			}
 	  }
 }
 
@@ -612,6 +656,41 @@ int _write(int file, char *ptr, int len)
 {
   HAL_UART_Transmit(&huart2,(uint8_t *)ptr,len,10);
   return len;
+}
+
+int judge_switch(std::array<int,4>& new_arr,std::array<int,4>& old_arr){ //FIXME:読みにくい
+    if(new_arr[0]!=old_arr[0] and new_arr[0] == 1){return 1;}//旧ボタンデータ[0]が新ボタンデータ[0]と等しくないかつ新ボタンデータ[0]が1
+    else if(new_arr[1]!=old_arr[1] and new_arr[1] == 1){return 2;}
+    else if(new_arr[2]!=old_arr[2] and new_arr[2] == 1){return 3;}
+    else if(new_arr[3]!=old_arr[3] and new_arr[3] == 1){return 4;}
+    else {return 0;}
+}
+
+void toggle_prog(int flag){
+  switch (flag){ //各Caseで関数を呼び出し
+      case RELOAD:
+      	HAL_GPIO_WritePin(GPIOA, LED1_Pin, GPIO_PIN_SET);
+          break;
+      case SHOOT:
+      	HAL_GPIO_WritePin(GPIOA, LED1_Pin, GPIO_PIN_RESET);
+          break;
+      case BELT_POSITIVE:
+      	HAL_GPIO_WritePin(GPIOA, LED2_Pin, GPIO_PIN_SET);
+          break;
+      case BELT_NEGATIVE:
+      	HAL_GPIO_WritePin(GPIOA, LED2_Pin, GPIO_PIN_RESET);
+          break;
+      case STATUS_ERROR:
+          break;
+  }
+}
+
+void emergency_prog(void){
+	  HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
+}
+
+void recovery_prog(void){
+	  HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
 }
 /* USER CODE END 4 */
 

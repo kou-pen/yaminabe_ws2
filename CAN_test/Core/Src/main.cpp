@@ -328,6 +328,7 @@ static void MX_GPIO_Init(void)
 	  int switch_nom;
 	  std::array<int,4> arr_data;
 	  std::array<int,4> arr_old_data;
+	  int last_hat;
 
 	  if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
 	  {

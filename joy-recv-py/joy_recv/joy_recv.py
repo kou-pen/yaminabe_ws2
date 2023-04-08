@@ -24,9 +24,9 @@ class JoyRecv(Node):
     def callback(self, joy):
         buttondata = [0] * 8
         buttondata[0] = joy.axes[0] * 127 + 128 #0~256
-        buttondata[1] = joy.axes[1] * 127 + 128
-        buttondata[2] = joy.axes[3] * 127 + 128
-        buttondata[3] = joy.axes[4] * 127 + 128 
+        buttondata[1] = joy.axes[3] * 127 + 128
+        buttondata[2] = joy.axes[4] * 127 + 128
+        buttondata[3] = joy.axes[7] + 1
         buttondata[4] = joy.buttons[0]
         buttondata[5] = joy.buttons[1]
         buttondata[6] = joy.buttons[2]
