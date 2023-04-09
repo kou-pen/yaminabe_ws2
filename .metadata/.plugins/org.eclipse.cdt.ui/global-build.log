@@ -6765,3 +6765,865 @@ Finished building: default.size.stdout
  
 Finished building: MOTOR_test.list
  
+14:36:23 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void WE_3(int, int, int, float*)':
+../Core/Src/main.cpp:692:15: error: 'sqrt' was not declared in this scope
+  692 |         {{1/2,sqrt(3)/-2,-1}},
+      |               ^~~~
+../Core/Src/main.cpp:694:5: error: too many initializers for 'std::array<std::array<float, 3>, 3>'
+  694 |     };
+      |     ^
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:36:48 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void WE_3(int, int, int, float*)':
+../Core/Src/main.cpp:692:20: error: 'sqrt' is not a member of 'std'; did you mean 'sort'?
+  692 |         {{1/2,std::sqrt(3)/-2,-1}},
+      |                    ^~~~
+      |                    sort
+../Core/Src/main.cpp:693:20: error: 'sqrt' is not a member of 'std'; did you mean 'sort'?
+  693 |         {{1/2,std::sqrt(3)/2,-1}},
+      |                    ^~~~
+      |                    sort
+../Core/Src/main.cpp:694:5: error: too many initializers for 'std::array<std::array<float, 3>, 3>'
+  694 |     };
+      |     ^
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:37:30 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void WE_3(int, int, int, float*)':
+../Core/Src/main.cpp:695:5: error: too many initializers for 'std::array<std::array<float, 3>, 3>'
+  695 |     };
+      |     ^
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:37:55 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void WE_3(int, int, int, float*)':
+../Core/Src/main.cpp:695:5: error: too many initializers for 'std::array<std::array<float, 3>, 3>'
+  695 |     };
+      |     ^
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:38:24 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void WE_3(int, int, int, float*)':
+../Core/Src/main.cpp:695:5: error: too many initializers for 'std::array<std::array<float, 3>, 3>'
+  695 |     };
+      |     ^
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:38:36 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void WE_3(int, int, int, float*)':
+../Core/Src/main.cpp:695:5: error: too many initializers for 'std::array<std::array<float, 3>, 3>'
+  695 |     }
+      |     ^
+../Core/Src/main.cpp:697:5: error: expected ',' or ';' before 'for'
+  697 |     for(int i = 0;i < 3;i++){
+      |     ^~~
+../Core/Src/main.cpp:697:19: error: 'i' was not declared in this scope; did you mean 'id'?
+  697 |     for(int i = 0;i < 3;i++){
+      |                   ^
+      |                   id
+../Core/Src/main.cpp:691:39: warning: unused variable 'motor_arr' [-Wunused-variable]
+  691 |     std::array<std::array<float,3>,3> motor_arr{
+      |                                       ^~~~~~~~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:39:00 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void WE_3(int, int, int, float*)':
+../Core/Src/main.cpp:695:5: error: too many initializers for 'std::array<std::array<float, 3>, 3>'
+  695 |     }
+      |     ^
+../Core/Src/main.cpp:697:5: error: expected ',' or ';' before 'for'
+  697 |     for(int i = 0;i < 3;i++;){
+      |     ^~~
+../Core/Src/main.cpp:697:19: error: 'i' was not declared in this scope; did you mean 'id'?
+  697 |     for(int i = 0;i < 3;i++;){
+      |                   ^
+      |                   id
+../Core/Src/main.cpp:697:29: error: expected primary-expression before ')' token
+  697 |     for(int i = 0;i < 3;i++;){
+      |                             ^
+../Core/Src/main.cpp:691:39: warning: unused variable 'motor_arr' [-Wunused-variable]
+  691 |     std::array<std::array<float,3>,3> motor_arr{
+      |                                       ^~~~~~~~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:39:36 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void WE_3(int, int, int, float**)':
+../Core/Src/main.cpp:695:5: error: too many initializers for 'std::array<std::array<float, 3>, 3>'
+  695 |     }
+      |     ^
+../Core/Src/main.cpp:697:5: error: expected ',' or ';' before 'for'
+  697 |     for(int i = 0;i < 3;i++;){
+      |     ^~~
+../Core/Src/main.cpp:697:19: error: 'i' was not declared in this scope; did you mean 'id'?
+  697 |     for(int i = 0;i < 3;i++;){
+      |                   ^
+      |                   id
+../Core/Src/main.cpp:697:29: error: expected primary-expression before ')' token
+  697 |     for(int i = 0;i < 3;i++;){
+      |                             ^
+../Core/Src/main.cpp:702:22: error: invalid operands of types 'float*' and 'double' to binary 'operator*'
+  702 |         motor_pwm[0] *= -1.0;
+      |         ~~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.cpp:702:22: note:   in evaluation of 'operator*=(float*, double)'
+../Core/Src/main.cpp:710:22: error: invalid operands of types 'float*' and 'double' to binary 'operator*'
+  710 |         motor_pwm[1] *= -1.0;
+      |         ~~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.cpp:710:22: note:   in evaluation of 'operator*=(float*, double)'
+../Core/Src/main.cpp:718:22: error: invalid operands of types 'float*' and 'double' to binary 'operator*'
+  718 |         motor_pwm[1] *= -1.0;
+      |         ~~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.cpp:718:22: note:   in evaluation of 'operator*=(float*, double)'
+../Core/Src/main.cpp:691:39: warning: unused variable 'motor_arr' [-Wunused-variable]
+  691 |     std::array<std::array<float,3>,3> motor_arr{
+      |                                       ^~~~~~~~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:40:52 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void WE_3(int, int, int, float**)':
+../Core/Src/main.cpp:695:5: error: too many initializers for 'std::array<std::array<float, 3>, 3>'
+  695 |     }
+      |     ^
+../Core/Src/main.cpp:696:5: error: expected ',' or ';' before 'int'
+  696 |     int i;
+      |     ^~~
+../Core/Src/main.cpp:697:9: error: 'i' was not declared in this scope; did you mean 'id'?
+  697 |     for(i = 0;i < 3;i++;){
+      |         ^
+      |         id
+../Core/Src/main.cpp:697:24: error: expected ')' before ';' token
+  697 |     for(i = 0;i < 3;i++;){
+      |        ~               ^
+      |                        )
+../Core/Src/main.cpp:697:5: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+  697 |     for(i = 0;i < 3;i++;){
+      |     ^~~
+../Core/Src/main.cpp:697:25: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+  697 |     for(i = 0;i < 3;i++;){
+      |                         ^
+../Core/Src/main.cpp:697:25: error: expected primary-expression before ')' token
+../Core/Src/main.cpp:702:22: error: invalid operands of types 'float*' and 'double' to binary 'operator*'
+  702 |         motor_pwm[0] *= -1.0;
+      |         ~~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.cpp:702:22: note:   in evaluation of 'operator*=(float*, double)'
+../Core/Src/main.cpp:710:22: error: invalid operands of types 'float*' and 'double' to binary 'operator*'
+  710 |         motor_pwm[1] *= -1.0;
+      |         ~~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.cpp:710:22: note:   in evaluation of 'operator*=(float*, double)'
+../Core/Src/main.cpp:718:22: error: invalid operands of types 'float*' and 'double' to binary 'operator*'
+  718 |         motor_pwm[1] *= -1.0;
+      |         ~~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.cpp:718:22: note:   in evaluation of 'operator*=(float*, double)'
+../Core/Src/main.cpp:691:39: warning: unused variable 'motor_arr' [-Wunused-variable]
+  691 |     std::array<std::array<float,3>,3> motor_arr{
+      |                                       ^~~~~~~~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:41:33 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void WE_3(int, int, int, float**)':
+../Core/Src/main.cpp:695:5: error: too many initializers for 'std::array<std::array<float, 3>, 3>'
+  695 |     };
+      |     ^
+../Core/Src/main.cpp:696:28: error: expected ')' before ';' token
+  696 |     for(int i = 0;i < 3;i++;){
+      |        ~                   ^
+      |                            )
+../Core/Src/main.cpp:696:5: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+  696 |     for(int i = 0;i < 3;i++;){
+      |     ^~~
+../Core/Src/main.cpp:696:29: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+  696 |     for(int i = 0;i < 3;i++;){
+      |                             ^
+../Core/Src/main.cpp:696:29: error: expected primary-expression before ')' token
+../Core/Src/main.cpp:701:22: error: invalid operands of types 'float*' and 'double' to binary 'operator*'
+  701 |         motor_pwm[0] *= -1.0;
+      |         ~~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.cpp:701:22: note:   in evaluation of 'operator*=(float*, double)'
+../Core/Src/main.cpp:709:22: error: invalid operands of types 'float*' and 'double' to binary 'operator*'
+  709 |         motor_pwm[1] *= -1.0;
+      |         ~~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.cpp:709:22: note:   in evaluation of 'operator*=(float*, double)'
+../Core/Src/main.cpp:717:22: error: invalid operands of types 'float*' and 'double' to binary 'operator*'
+  717 |         motor_pwm[1] *= -1.0;
+      |         ~~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.cpp:717:22: note:   in evaluation of 'operator*=(float*, double)'
+../Core/Src/main.cpp:691:39: warning: unused variable 'motor_arr' [-Wunused-variable]
+  691 |     std::array<std::array<float,3>,3> motor_arr{
+      |                                       ^~~~~~~~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:41:41 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void WE_3(int, int, int, float**)':
+../Core/Src/main.cpp:695:5: error: too many initializers for 'std::array<std::array<float, 3>, 3>'
+  695 |     };
+      |     ^
+../Core/Src/main.cpp:696:28: error: expected ')' before ';' token
+  696 |     for(int i = 0;i < 3;i++;){
+      |        ~                   ^
+      |                            )
+../Core/Src/main.cpp:696:5: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+  696 |     for(int i = 0;i < 3;i++;){
+      |     ^~~
+../Core/Src/main.cpp:696:29: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+  696 |     for(int i = 0;i < 3;i++;){
+      |                             ^
+../Core/Src/main.cpp:696:29: error: expected primary-expression before ')' token
+../Core/Src/main.cpp:701:22: error: invalid operands of types 'float*' and 'double' to binary 'operator*'
+  701 |         motor_pwm[0] *= -1.0;
+      |         ~~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.cpp:701:22: note:   in evaluation of 'operator*=(float*, double)'
+../Core/Src/main.cpp:709:22: error: invalid operands of types 'float*' and 'double' to binary 'operator*'
+  709 |         motor_pwm[1] *= -1.0;
+      |         ~~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.cpp:709:22: note:   in evaluation of 'operator*=(float*, double)'
+../Core/Src/main.cpp:717:22: error: invalid operands of types 'float*' and 'double' to binary 'operator*'
+  717 |         motor_pwm[1] *= -1.0;
+      |         ~~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.cpp:717:22: note:   in evaluation of 'operator*=(float*, double)'
+../Core/Src/main.cpp:691:39: warning: unused variable 'motor_arr' [-Wunused-variable]
+  691 |     std::array<std::array<float,3>,3> motor_arr{
+      |                                       ^~~~~~~~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:46:40 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp:79:1: error: expected initializer before 'void'
+   79 | void nomal_3(int power,float* motor_pwm);
+      | ^~~~
+../Core/Src/main.cpp:562:1: error: too many initializers for 'std::array<std::array<float, 3>, 3>'
+  562 | }
+      | ^
+../Core/Src/main.cpp:564:1: error: expected ',' or ';' before 'void'
+  564 | void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
+      | ^~~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:47:14 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp:79:1: error: expected initializer before 'void'
+   79 | void nomal_3(int power,float* motor_pwm);
+      | ^~~~
+../Core/Src/main.cpp:562:1: error: too many initializers for 'std::array<std::array<float, 3>, 3>'
+  562 | }
+      | ^
+../Core/Src/main.cpp:564:1: error: expected ',' or ';' before 'void'
+  564 | void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan){
+      | ^~~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:47:35 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp:562:1: error: too many initializers for 'std::array<std::array<float, 3>, 3>'
+  562 | }
+      | ^
+../Core/Src/main.cpp:564:1: error: expected ',' or ';' before 'void'
+  564 | void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan){
+      | ^~~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:49:34 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "MOTOR_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/MOTOR_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MOTOR_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MOTOR_test.elf
+ 
+arm-none-eabi-size   MOTOR_test.elf 
+arm-none-eabi-objdump -h -S  MOTOR_test.elf  > "MOTOR_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  22276	    120	   1896	  24292	   5ee4	MOTOR_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: MOTOR_test.list
+ 
+14:50:17 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void WE_3(float, float, float, float&)':
+../Core/Src/main.cpp:696:18: error: invalid types 'float[int]' for array subscript
+  696 |         motor_pwm[i] = Vx * motor_arr[i][0] + Vy * motor_arr[i][1] + Vr * motor_arr[i][2];
+      |                  ^
+../Core/Src/main.cpp:698:17: error: invalid types 'float[int]' for array subscript
+  698 |     if(motor_pwm[0] < 0){
+      |                 ^
+../Core/Src/main.cpp:700:18: error: invalid types 'float[int]' for array subscript
+  700 |         motor_pwm[0] *= -1.0;
+      |                  ^
+../Core/Src/main.cpp:706:17: error: invalid types 'float[int]' for array subscript
+  706 |     if(motor_pwm[1] < 0){
+      |                 ^
+../Core/Src/main.cpp:708:18: error: invalid types 'float[int]' for array subscript
+  708 |         motor_pwm[1] *= -1.0;
+      |                  ^
+../Core/Src/main.cpp:714:17: error: invalid types 'float[int]' for array subscript
+  714 |     if(motor_pwm[1] < 0){
+      |                 ^
+../Core/Src/main.cpp:716:18: error: invalid types 'float[int]' for array subscript
+  716 |         motor_pwm[1] *= -1.0;
+      |                  ^
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:51:10 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void WE_3(float, float, float, float&)':
+../Core/Src/main.cpp:696:18: error: invalid types 'float[int]' for array subscript
+  696 |         motor_pwm[i] = Vx * motor_arr[i][0] + Vy * motor_arr[i][1] + Vr * motor_arr[i][2];
+      |                  ^
+../Core/Src/main.cpp:698:17: error: invalid types 'float[int]' for array subscript
+  698 |     if(motor_pwm[0] < 0){
+      |                 ^
+../Core/Src/main.cpp:700:18: error: invalid types 'float[int]' for array subscript
+  700 |         motor_pwm[0] *= -1.0;
+      |                  ^
+../Core/Src/main.cpp:706:17: error: invalid types 'float[int]' for array subscript
+  706 |     if(motor_pwm[1] < 0){
+      |                 ^
+../Core/Src/main.cpp:708:18: error: invalid types 'float[int]' for array subscript
+  708 |         motor_pwm[1] *= -1.0;
+      |                  ^
+../Core/Src/main.cpp:714:17: error: invalid types 'float[int]' for array subscript
+  714 |     if(motor_pwm[1] < 0){
+      |                 ^
+../Core/Src/main.cpp:716:18: error: invalid types 'float[int]' for array subscript
+  716 |         motor_pwm[1] *= -1.0;
+      |                  ^
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:52:09 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef*)':
+../Core/Src/main.cpp:611:21: error: invalid initialization of reference of type 'std::array<float, 3>&' from expression of type 'float [3]'
+  611 |     nomal_3(data[0],motor_pwm);//test
+      |                     ^~~~~~~~~
+../Core/Src/main.cpp:79:45: note: in passing argument 2 of 'void nomal_3(int, std::array<float, 3>&)'
+   79 | void nomal_3(int power,std::array<float,3>& motor_pwm);
+      |                        ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:54:25 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef*)':
+../Core/Src/main.cpp:611:21: error: invalid initialization of reference of type 'std::array<float, 3>&' from expression of type 'float [3]'
+  611 |     nomal_3(data[0],motor_pwm);//test
+      |                     ^~~~~~~~~
+../Core/Src/main.cpp:79:47: note: in passing argument 2 of 'void nomal_3(float, std::array<float, 3>&)'
+   79 | void nomal_3(float power,std::array<float,3>& motor_pwm);
+      |                          ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:55:45 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef*)':
+../Core/Src/main.cpp:610:34: error: invalid initialization of reference of type 'std::array<float, 3>&' from expression of type 'float [3]'
+  610 |     WE_3(data[1],data[2],data[0],motor_pwm); //omni
+      |                                  ^~~~~~~~~
+../Core/Src/main.cpp:78:59: note: in passing argument 4 of 'void WE_3(float, float, float, std::array<float, 3>&)'
+   78 | void WE_3(float Vx,float Vy,float Vr,std::array<float,3>& motor_pwm);
+      |                                      ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/main.cpp:611:21: error: invalid initialization of reference of type 'std::array<float, 3>&' from expression of type 'float [3]'
+  611 |     nomal_3(data[0],motor_pwm);//test
+      |                     ^~~~~~~~~
+../Core/Src/main.cpp:79:47: note: in passing argument 2 of 'void nomal_3(float, std::array<float, 3>&)'
+   79 | void nomal_3(float power,std::array<float,3>& motor_pwm);
+      |                          ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:57:40 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef*)':
+../Core/Src/main.cpp:610:55: error: invalid initialization of reference of type 'std::array<float, 3>&' from expression of type 'float [3]'
+  610 |     WE_3((float)data[1],(float)data[2],(float)data[0],motor_pwm); //omni
+      |                                                       ^~~~~~~~~
+../Core/Src/main.cpp:78:59: note: in passing argument 4 of 'void WE_3(float, float, float, std::array<float, 3>&)'
+   78 | void WE_3(float Vx,float Vy,float Vr,std::array<float,3>& motor_pwm);
+      |                                      ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/main.cpp:611:13: error: expected primary-expression before 'float'
+  611 |     nomal_3(float)data[0],motor_pwm);//test
+      |             ^~~~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:59:25 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef*)':
+../Core/Src/main.cpp:610:55: error: invalid initialization of reference of type 'std::array<float, 3>&' from expression of type 'float [3]'
+  610 |     WE_3((float)data[1],(float)data[2],(float)data[0],motor_pwm); //omni
+      |                                                       ^~~~~~~~~
+../Core/Src/main.cpp:78:59: note: in passing argument 4 of 'void WE_3(float, float, float, std::array<float, 3>&)'
+   78 | void WE_3(float Vx,float Vy,float Vr,std::array<float,3>& motor_pwm);
+      |                                      ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/main.cpp:611:28: error: invalid initialization of reference of type 'std::array<float, 3>&' from expression of type 'float [3]'
+  611 |     nomal_3((float)data[0],motor_pwm);//test
+      |                            ^~~~~~~~~
+../Core/Src/main.cpp:79:47: note: in passing argument 2 of 'void nomal_3(float, std::array<float, 3>&)'
+   79 | void nomal_3(float power,std::array<float,3>& motor_pwm);
+      |                          ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+15:01:58 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef*)':
+../Core/Src/main.cpp:610:55: error: cannot convert 'float*' to 'std::array<float, 3>*'
+  610 |     WE_3((float)data[1],(float)data[2],(float)data[0],motor_pwm); //omni
+      |                                                       ^~~~~~~~~
+      |                                                       |
+      |                                                       float*
+../Core/Src/main.cpp:78:59: note:   initializing argument 4 of 'void WE_3(float, float, float, std::array<float, 3>*)'
+   78 | void WE_3(float Vx,float Vy,float Vr,std::array<float,3>* motor_pwm);
+      |                                      ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/main.cpp:611:28: error: cannot convert 'float*' to 'std::array<float, 3>*'
+  611 |     nomal_3((float)data[0],motor_pwm);//test
+      |                            ^~~~~~~~~
+      |                            |
+      |                            float*
+../Core/Src/main.cpp:79:47: note:   initializing argument 2 of 'void nomal_3(float, std::array<float, 3>*)'
+   79 | void nomal_3(float power,std::array<float,3>* motor_pwm);
+      |                          ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/main.cpp: In function 'void WE_3(float, float, float, std::array<float, 3>*)':
+../Core/Src/main.cpp:696:89: error: no match for 'operator=' (operand types are 'std::array<float, 3>' and 'float')
+  696 |         motor_pwm[i] = Vx * motor_arr[i][0] + Vy * motor_arr[i][1] + Vr * motor_arr[i][2];
+      |                                                                                         ^
+In file included from ../Core/Src/main.cpp:29:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: candidate: 'constexpr std::array<float, 3>& std::array<float, 3>::operator=(const std::array<float, 3>&)'
+   94 |     struct array
+      |            ^~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note:   no known conversion for argument 1 from 'float' to 'const std::array<float, 3>&'
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: candidate: 'constexpr std::array<float, 3>& std::array<float, 3>::operator=(std::array<float, 3>&&)'
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note:   no known conversion for argument 1 from 'float' to 'std::array<float, 3>&&'
+../Core/Src/main.cpp:698:21: error: no match for 'operator<' (operand types are 'std::array<float, 3>' and 'int')
+  698 |     if(motor_pwm[0] < 0){
+      |        ~~~~~~~~~~~~ ^ ~
+      |                   |   |
+      |                   |   int
+      |                   std::array<float, 3>
+In file included from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/utility:70,
+                 from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/algorithm:60,
+                 from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_pair.h:489:5: note: candidate: 'template<class _T1, class _T2> constexpr bool std::operator<(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)'
+  489 |     operator<(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+      |     ^~~~~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_pair.h:489:5: note:   template argument deduction/substitution failed:
+../Core/Src/main.cpp:698:23: note:   'std::array<float, 3>' is not derived from 'const std::pair<_T1, _T2>'
+  698 |     if(motor_pwm[0] < 0){
+      |                       ^
+In file included from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h:67,
+                 from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/algorithm:61,
+                 from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:394:5: note: candidate: 'template<class _Iterator> bool std::operator<(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)'
+  394 |     operator<(const reverse_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:394:5: note:   template argument deduction/substitution failed:
+../Core/Src/main.cpp:698:23: note:   'std::array<float, 3>' is not derived from 'const std::reverse_iterator<_Iterator>'
+  698 |     if(motor_pwm[0] < 0){
+      |                       ^
+In file included from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h:67,
+                 from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/algorithm:61,
+                 from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:432:5: note: candidate: 'template<class _IteratorL, class _IteratorR> bool std::operator<(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)'
+  432 |     operator<(const reverse_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:432:5: note:   template argument deduction/substitution failed:
+../Core/Src/main.cpp:698:23: note:   'std::array<float, 3>' is not derived from 'const std::reverse_iterator<_Iterator>'
+  698 |     if(motor_pwm[0] < 0){
+      |                       ^
+In file included from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h:67,
+                 from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/algorithm:61,
+                 from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:1507:5: note: candidate: 'template<class _IteratorL, class _IteratorR> bool std::operator<(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorR>&)'
+ 1507 |     operator<(const move_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:1507:5: note:   template argument deduction/substitution failed:
+../Core/Src/main.cpp:698:23: note:   'std::array<float, 3>' is not derived from 'const std::move_iterator<_IteratorL>'
+  698 |     if(motor_pwm[0] < 0){
+      |                       ^
+In file included from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h:67,
+                 from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/algorithm:61,
+                 from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:1563:5: note: candidate: 'template<class _Iterator> bool std::operator<(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorL>&)'
+ 1563 |     operator<(const move_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:1563:5: note:   template argument deduction/substitution failed:
+../Core/Src/main.cpp:698:23: note:   'std::array<float, 3>' is not derived from 'const std::move_iterator<_IteratorL>'
+  698 |     if(motor_pwm[0] < 0){
+      |                       ^
+In file included from ../Core/Src/main.cpp:29:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:288:5: note: candidate: 'template<class _Tp, unsigned int _Nm> bool std::operator<(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)'
+  288 |     operator<(const array<_Tp, _Nm>& __a, const array<_Tp, _Nm>& __b)
+      |     ^~~~~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:288:5: note:   template argument deduction/substitution failed:
+../Core/Src/main.cpp:698:23: note:   mismatched types 'const std::array<_Tp, _Nm>' and 'int'
+  698 |     if(motor_pwm[0] < 0){
+      |                       ^
+../Core/Src/main.cpp:700:22: error: no match for 'operator*=' (operand types are 'std::array<float, 3>' and 'double')
+  700 |         motor_pwm[0] *= -1.0;
+      |         ~~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.cpp:706:21: error: no match for 'operator<' (operand types are 'std::array<float, 3>' and 'int')
+  706 |     if(motor_pwm[1] < 0){
+      |        ~~~~~~~~~~~~ ^ ~
+      |                   |   |
+      |                   |   int
+      |                   std::array<float, 3>
+In file included from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/utility:70,
+                 from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/algorithm:60,
+                 from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_pair.h:489:5: note: candidate: 'template<class _T1, class _T2> constexpr bool std::operator<(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)'
+  489 |     operator<(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+      |     ^~~~~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_pair.h:489:5: note:   template argument deduction/substitution failed:
+../Core/Src/main.cpp:706:23: note:   'std::array<float, 3>' is not derived from 'const std::pair<_T1, _T2>'
+  706 |     if(motor_pwm[1] < 0){
+      |                       ^
+In file included from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h:67,
+                 from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/algorithm:61,
+                 from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:394:5: note: candidate: 'template<class _Iterator> bool std::operator<(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)'
+  394 |     operator<(const reverse_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:394:5: note:   template argument deduction/substitution failed:
+../Core/Src/main.cpp:706:23: note:   'std::array<float, 3>' is not derived from 'const std::reverse_iterator<_Iterator>'
+  706 |     if(motor_pwm[1] < 0){
+      |                       ^
+In file included from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h:67,
+                 from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/algorithm:61,
+                 from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:432:5: note: candidate: 'template<class _IteratorL, class _IteratorR> bool std::operator<(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)'
+  432 |     operator<(const reverse_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:432:5: note:   template argument deduction/substitution failed:
+../Core/Src/main.cpp:706:23: note:   'std::array<float, 3>' is not derived from 'const std::reverse_iterator<_Iterator>'
+  706 |     if(motor_pwm[1] < 0){
+      |                       ^
+In file included from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h:67,
+                 from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/algorithm:61,
+                 from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:1507:5: note: candidate: 'template<class _IteratorL, class _IteratorR> bool std::operator<(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorR>&)'
+ 1507 |     operator<(const move_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:1507:5: note:   template argument deduction/substitution failed:
+../Core/Src/main.cpp:706:23: note:   'std::array<float, 3>' is not derived from 'const std::move_iterator<_IteratorL>'
+  706 |     if(motor_pwm[1] < 0){
+      |                       ^
+In file included from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h:67,
+                 from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/algorithm:61,
+                 from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:1563:5: note: candidate: 'template<class _Iterator> bool std::operator<(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorL>&)'
+ 1563 |     operator<(const move_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:1563:5: note:   template argument deduction/substitution failed:
+../Core/Src/main.cpp:706:23: note:   'std::array<float, 3>' is not derived from 'const std::move_iterator<_IteratorL>'
+  706 |     if(motor_pwm[1] < 0){
+      |                       ^
+In file included from ../Core/Src/main.cpp:29:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:288:5: note: candidate: 'template<class _Tp, unsigned int _Nm> bool std::operator<(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)'
+  288 |     operator<(const array<_Tp, _Nm>& __a, const array<_Tp, _Nm>& __b)
+      |     ^~~~~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:288:5: note:   template argument deduction/substitution failed:
+../Core/Src/main.cpp:706:23: note:   mismatched types 'const std::array<_Tp, _Nm>' and 'int'
+  706 |     if(motor_pwm[1] < 0){
+      |                       ^
+../Core/Src/main.cpp:708:22: error: no match for 'operator*=' (operand types are 'std::array<float, 3>' and 'double')
+  708 |         motor_pwm[1] *= -1.0;
+      |         ~~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.cpp:714:21: error: no match for 'operator<' (operand types are 'std::array<float, 3>' and 'int')
+  714 |     if(motor_pwm[1] < 0){
+      |        ~~~~~~~~~~~~ ^ ~
+      |                   |   |
+      |                   |   int
+      |                   std::array<float, 3>
+In file included from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/utility:70,
+                 from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/algorithm:60,
+                 from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_pair.h:489:5: note: candidate: 'template<class _T1, class _T2> constexpr bool std::operator<(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)'
+  489 |     operator<(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+      |     ^~~~~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_pair.h:489:5: note:   template argument deduction/substitution failed:
+../Core/Src/main.cpp:714:23: note:   'std::array<float, 3>' is not derived from 'const std::pair<_T1, _T2>'
+  714 |     if(motor_pwm[1] < 0){
+      |                       ^
+In file included from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h:67,
+                 from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/algorithm:61,
+                 from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:394:5: note: candidate: 'template<class _Iterator> bool std::operator<(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)'
+  394 |     operator<(const reverse_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:394:5: note:   template argument deduction/substitution failed:
+../Core/Src/main.cpp:714:23: note:   'std::array<float, 3>' is not derived from 'const std::reverse_iterator<_Iterator>'
+  714 |     if(motor_pwm[1] < 0){
+      |                       ^
+In file included from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h:67,
+                 from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/algorithm:61,
+                 from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:432:5: note: candidate: 'template<class _IteratorL, class _IteratorR> bool std::operator<(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)'
+  432 |     operator<(const reverse_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:432:5: note:   template argument deduction/substitution failed:
+../Core/Src/main.cpp:714:23: note:   'std::array<float, 3>' is not derived from 'const std::reverse_iterator<_Iterator>'
+  714 |     if(motor_pwm[1] < 0){
+      |                       ^
+In file included from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h:67,
+                 from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/algorithm:61,
+                 from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:1507:5: note: candidate: 'template<class _IteratorL, class _IteratorR> bool std::operator<(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorR>&)'
+ 1507 |     operator<(const move_iterator<_IteratorL>& __x,
+      |     ^~~~~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:1507:5: note:   template argument deduction/substitution failed:
+../Core/Src/main.cpp:714:23: note:   'std::array<float, 3>' is not derived from 'const std::move_iterator<_IteratorL>'
+  714 |     if(motor_pwm[1] < 0){
+      |                       ^
+In file included from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h:67,
+                 from /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/algorithm:61,
+                 from ../Core/Src/main.cpp:28:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:1563:5: note: candidate: 'template<class _Iterator> bool std::operator<(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorL>&)'
+ 1563 |     operator<(const move_iterator<_Iterator>& __x,
+      |     ^~~~~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:1563:5: note:   template argument deduction/substitution failed:
+../Core/Src/main.cpp:714:23: note:   'std::array<float, 3>' is not derived from 'const std::move_iterator<_IteratorL>'
+  714 |     if(motor_pwm[1] < 0){
+      |                       ^
+In file included from ../Core/Src/main.cpp:29:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:288:5: note: candidate: 'template<class _Tp, unsigned int _Nm> bool std::operator<(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)'
+  288 |     operator<(const array<_Tp, _Nm>& __a, const array<_Tp, _Nm>& __b)
+      |     ^~~~~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:288:5: note:   template argument deduction/substitution failed:
+../Core/Src/main.cpp:714:23: note:   mismatched types 'const std::array<_Tp, _Nm>' and 'int'
+  714 |     if(motor_pwm[1] < 0){
+      |                       ^
+../Core/Src/main.cpp:716:22: error: no match for 'operator*=' (operand types are 'std::array<float, 3>' and 'double')
+  716 |         motor_pwm[1] *= -1.0;
+      |         ~~~~~~~~~~~~~^~~~~~~
+../Core/Src/main.cpp: In function 'void nomal_3(float, std::array<float, 3>*)':
+../Core/Src/main.cpp:725:17: error: no match for 'operator=' (operand types are 'std::array<float, 3>' and 'float')
+  725 |  motor_pwm[0] = power;
+      |                 ^~~~~
+In file included from ../Core/Src/main.cpp:29:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: candidate: 'constexpr std::array<float, 3>& std::array<float, 3>::operator=(const std::array<float, 3>&)'
+   94 |     struct array
+      |            ^~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note:   no known conversion for argument 1 from 'float' to 'const std::array<float, 3>&'
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: candidate: 'constexpr std::array<float, 3>& std::array<float, 3>::operator=(std::array<float, 3>&&)'
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note:   no known conversion for argument 1 from 'float' to 'std::array<float, 3>&&'
+../Core/Src/main.cpp:726:17: error: no match for 'operator=' (operand types are 'std::array<float, 3>' and 'float')
+  726 |  motor_pwm[1] = power;
+      |                 ^~~~~
+In file included from ../Core/Src/main.cpp:29:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: candidate: 'constexpr std::array<float, 3>& std::array<float, 3>::operator=(const std::array<float, 3>&)'
+   94 |     struct array
+      |            ^~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note:   no known conversion for argument 1 from 'float' to 'const std::array<float, 3>&'
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: candidate: 'constexpr std::array<float, 3>& std::array<float, 3>::operator=(std::array<float, 3>&&)'
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note:   no known conversion for argument 1 from 'float' to 'std::array<float, 3>&&'
+../Core/Src/main.cpp:727:17: error: no match for 'operator=' (operand types are 'std::array<float, 3>' and 'float')
+  727 |  motor_pwm[2] = power;
+      |                 ^~~~~
+In file included from ../Core/Src/main.cpp:29:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: candidate: 'constexpr std::array<float, 3>& std::array<float, 3>::operator=(const std::array<float, 3>&)'
+   94 |     struct array
+      |            ^~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note:   no known conversion for argument 1 from 'float' to 'const std::array<float, 3>&'
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: candidate: 'constexpr std::array<float, 3>& std::array<float, 3>::operator=(std::array<float, 3>&&)'
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note:   no known conversion for argument 1 from 'float' to 'std::array<float, 3>&&'
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+15:02:22 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef*)':
+../Core/Src/main.cpp:610:55: error: invalid initialization of reference of type 'std::array<float, 3>&' from expression of type 'float [3]'
+  610 |     WE_3((float)data[1],(float)data[2],(float)data[0],motor_pwm); //omni
+      |                                                       ^~~~~~~~~
+../Core/Src/main.cpp:78:59: note: in passing argument 4 of 'void WE_3(float, float, float, std::array<float, 3>&)'
+   78 | void WE_3(float Vx,float Vy,float Vr,std::array<float,3>& motor_pwm);
+      |                                      ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/main.cpp:611:28: error: invalid initialization of reference of type 'std::array<float, 3>&' from expression of type 'float [3]'
+  611 |     nomal_3((float)data[0],motor_pwm);//test
+      |                            ^~~~~~~~~
+../Core/Src/main.cpp:79:47: note: in passing argument 2 of 'void nomal_3(float, std::array<float, 3>&)'
+   79 | void nomal_3(float power,std::array<float,3>& motor_pwm);
+      |                          ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/main.cpp: In function 'void nomal_3(float, std::array<float, 3>*)':
+../Core/Src/main.cpp:725:17: error: no match for 'operator=' (operand types are 'std::array<float, 3>' and 'float')
+  725 |  motor_pwm[0] = power;
+      |                 ^~~~~
+In file included from ../Core/Src/main.cpp:29:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: candidate: 'constexpr std::array<float, 3>& std::array<float, 3>::operator=(const std::array<float, 3>&)'
+   94 |     struct array
+      |            ^~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note:   no known conversion for argument 1 from 'float' to 'const std::array<float, 3>&'
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: candidate: 'constexpr std::array<float, 3>& std::array<float, 3>::operator=(std::array<float, 3>&&)'
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note:   no known conversion for argument 1 from 'float' to 'std::array<float, 3>&&'
+../Core/Src/main.cpp:726:17: error: no match for 'operator=' (operand types are 'std::array<float, 3>' and 'float')
+  726 |  motor_pwm[1] = power;
+      |                 ^~~~~
+In file included from ../Core/Src/main.cpp:29:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: candidate: 'constexpr std::array<float, 3>& std::array<float, 3>::operator=(const std::array<float, 3>&)'
+   94 |     struct array
+      |            ^~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note:   no known conversion for argument 1 from 'float' to 'const std::array<float, 3>&'
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: candidate: 'constexpr std::array<float, 3>& std::array<float, 3>::operator=(std::array<float, 3>&&)'
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note:   no known conversion for argument 1 from 'float' to 'std::array<float, 3>&&'
+../Core/Src/main.cpp:727:17: error: no match for 'operator=' (operand types are 'std::array<float, 3>' and 'float')
+  727 |  motor_pwm[2] = power;
+      |                 ^~~~~
+In file included from ../Core/Src/main.cpp:29:
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: candidate: 'constexpr std::array<float, 3>& std::array<float, 3>::operator=(const std::array<float, 3>&)'
+   94 |     struct array
+      |            ^~~~~
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note:   no known conversion for argument 1 from 'float' to 'const std::array<float, 3>&'
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note: candidate: 'constexpr std::array<float, 3>& std::array<float, 3>::operator=(std::array<float, 3>&&)'
+/opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/array:94:12: note:   no known conversion for argument 1 from 'float' to 'std::array<float, 3>&&'
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+15:02:34 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef*)':
+../Core/Src/main.cpp:610:55: error: invalid initialization of reference of type 'std::array<float, 3>&' from expression of type 'float [3]'
+  610 |     WE_3((float)data[1],(float)data[2],(float)data[0],motor_pwm); //omni
+      |                                                       ^~~~~~~~~
+../Core/Src/main.cpp:78:59: note: in passing argument 4 of 'void WE_3(float, float, float, std::array<float, 3>&)'
+   78 | void WE_3(float Vx,float Vy,float Vr,std::array<float,3>& motor_pwm);
+      |                                      ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/main.cpp:611:28: error: invalid initialization of reference of type 'std::array<float, 3>&' from expression of type 'float [3]'
+  611 |     nomal_3((float)data[0],motor_pwm);//test
+      |                            ^~~~~~~~~
+../Core/Src/main.cpp:79:47: note: in passing argument 2 of 'void nomal_3(float, std::array<float, 3>&)'
+   79 | void nomal_3(float power,std::array<float,3>& motor_pwm);
+      |                          ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+15:04:19 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "MOTOR_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/MOTOR_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MOTOR_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MOTOR_test.elf
+ 
+arm-none-eabi-size   MOTOR_test.elf 
+arm-none-eabi-objdump -h -S  MOTOR_test.elf  > "MOTOR_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  24012	    156	   1892	  26060	   65cc	MOTOR_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: MOTOR_test.list
+ 
+15:06:59 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "MOTOR_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/MOTOR_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MOTOR_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MOTOR_test.elf
+ 
+arm-none-eabi-size   MOTOR_test.elf 
+arm-none-eabi-objdump -h -S  MOTOR_test.elf  > "MOTOR_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  24060	    156	   1892	  26108	   65fc	MOTOR_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: MOTOR_test.list
+ 
+15:07:52 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "MOTOR_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/MOTOR_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MOTOR_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MOTOR_test.elf
+ 
+arm-none-eabi-size   MOTOR_test.elf 
+arm-none-eabi-objdump -h -S  MOTOR_test.elf  > "MOTOR_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  22372	    120	   1896	  24388	   5f44	MOTOR_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: MOTOR_test.list
+ 
+15:08:07 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-size   MOTOR_test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22372	    120	   1896	  24388	   5f44	MOTOR_test.elf
+Finished building: default.size.stdout
+ 
+15:10:04 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "MOTOR_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/MOTOR_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MOTOR_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MOTOR_test.elf
+ 
+arm-none-eabi-size   MOTOR_test.elf 
+arm-none-eabi-objdump -h -S  MOTOR_test.elf  > "MOTOR_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  23716	    120	   1896	  25732	   6484	MOTOR_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: MOTOR_test.list
+ 
+15:11:58 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "MOTOR_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/MOTOR_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MOTOR_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MOTOR_test.elf
+ 
+arm-none-eabi-size   MOTOR_test.elf 
+arm-none-eabi-objdump -h -S  MOTOR_test.elf  > "MOTOR_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  23716	    120	   1896	  25732	   6484	MOTOR_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: MOTOR_test.list
+ 
+15:17:14 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "MOTOR_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/MOTOR_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MOTOR_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MOTOR_test.elf
+ 
+arm-none-eabi-size   MOTOR_test.elf 
+arm-none-eabi-objdump -h -S  MOTOR_test.elf  > "MOTOR_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  23804	    120	   1896	  25820	   64dc	MOTOR_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: MOTOR_test.list
+ 
+15:17:41 **** Incremental Build of configuration Debug for project MOTOR_test ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "MOTOR_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/kohki/yaminabe_ws/MOTOR_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MOTOR_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MOTOR_test.elf
+ 
+arm-none-eabi-size   MOTOR_test.elf 
+arm-none-eabi-objdump -h -S  MOTOR_test.elf  > "MOTOR_test.list"
+   text	   data	    bss	    dec	    hex	filename
+  23800	    120	   1896	  25816	   64d8	MOTOR_test.elf
+Finished building: default.size.stdout
+ 
+Finished building: MOTOR_test.list
+ 

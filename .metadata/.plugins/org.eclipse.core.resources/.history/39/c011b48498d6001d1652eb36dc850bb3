@@ -1,0 +1,762 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file           : main.c
+  * @brief          : Main program body
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2023 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+#include <stdio.h>
+#include <stdlib.h>
+
+#include <algorithm>
+#include <array>
+
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+CAN_HandleTypeDef hcan2;
+
+TIM_HandleTypeDef htim1;
+TIM_HandleTypeDef htim2;
+
+UART_HandleTypeDef huart2;
+
+/* USER CODE BEGIN PV */
+
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+static void MX_USART2_UART_Init(void);
+static void MX_TIM1_Init(void);
+static void MX_TIM2_Init(void);
+static void MX_CAN2_Init(void);
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan);
+int _write(int file, char *ptr, int len);
+void emergency_prog(void);
+void recovery_prog(void);
+void toggle_switch(std::array<int,5>& arr);
+void WE_3(int Vx,int Vy,int Vr,float* motor_pwm);
+void nomal_3(int power,float* motor_pwm);
+
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
+  /* USER CODE BEGIN 1 */
+	setbuf(stdout, NULL);
+
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_USART2_UART_Init();
+  MX_TIM1_Init();
+  MX_TIM2_Init();
+  MX_CAN2_Init();
+  /* USER CODE BEGIN 2 */
+	CAN_FilterTypeDef filter;
+	  filter.FilterIdHigh         = 0;                        // フィルターID(上位16ビット)
+	  filter.FilterIdLow          = 0;                        // フィルターID(下位16ビット)
+	  filter.FilterMaskIdHigh     = 0;                        // フィルターマスク(上位16ビット)
+	  filter.FilterMaskIdLow      = 0;                        // フィルターマスク(下位16ビット)
+	  filter.FilterScale          = CAN_FILTERSCALE_32BIT;    // フィルタースケール
+	  filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;         // フィルターに割り当てるFIFO
+	  filter.FilterBank           = 14;                        // フィルターバンクNo
+	  filter.FilterMode           = CAN_FILTERMODE_IDMASK;    // フィルターモード
+	  filter.SlaveStartFilterBank = 14;                       // スレーブCANの開始フィルターバンクNo
+	  filter.FilterActivation     = ENABLE;                   // フィルター無効／有効
+
+
+
+
+
+HAL_CAN_ConfigFilter(&hcan2, &filter);
+HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+  HAL_CAN_Start(&hcan2);
+  // 割り込み有効
+  HAL_CAN_ActivateNotification(&hcan2, CAN_IT_RX_FIFO0_MSG_PENDING);
+  printf("start\n");
+
+
+  HAL_GPIO_WritePin(GPIOC,PSB1_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOB,BRK1_Pin,GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC,PSB2_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOC,BRK2_Pin,GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC,PSB3_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOB,BRK3_Pin,GPIO_PIN_RESET);
+
+  HAL_GPIO_WritePin(GPIOA, LED1_Pin, GPIO_PIN_SET);
+  HAL_Delay(100);
+  HAL_GPIO_WritePin(GPIOA, LED2_Pin, GPIO_PIN_SET);
+  HAL_Delay(100);
+  HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
+  HAL_Delay(100);
+  HAL_GPIO_WritePin(GPIOA, LED1_Pin, GPIO_PIN_RESET);
+  HAL_Delay(100);
+  HAL_GPIO_WritePin(GPIOA, LED2_Pin, GPIO_PIN_RESET);
+  HAL_Delay(100);
+  HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
+  HAL_Delay(100);
+
+  /*
+  HAL_GPIO_WritePin(GPIOB,PSB4_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOB,BRK4_Pin,GPIO_PIN_SET);
+*/
+  /*
+  HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOA,DIRECTION2_Pin,GPIO_PIN_SET);
+  */
+  /*
+  HAL_GPIO_WritePin(GPIOD,DIRECTION4_Pin,GPIO_PIN_SET);
+*/
+
+
+
+
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  {
+
+/*
+	  HAL_GPIO_WritePin(GPIOC,PSB1_Pin,GPIO_PIN_SET);
+	  HAL_GPIO_WritePin(GPIOB,BRK1_Pin,GPIO_PIN_RESET);
+	  HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_SET);
+	  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,60000);
+	  HAL_Delay(1000);
+	  HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_RESET);
+	  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,30000);
+	  HAL_Delay(1000);
+	  */
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
+  }
+  /* USER CODE END 3 */
+}
+
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
+void SystemClock_Config(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+  /** Configure the main internal regulator output voltage
+  */
+  __HAL_RCC_PWR_CLK_ENABLE();
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+  RCC_OscInitStruct.PLL.PLLM = 8;
+  RCC_OscInitStruct.PLL.PLLN = 180;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+  RCC_OscInitStruct.PLL.PLLQ = 2;
+  RCC_OscInitStruct.PLL.PLLR = 2;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Activate the Over-Drive mode
+  */
+  if (HAL_PWREx_EnableOverDrive() != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Initializes the CPU, AHB and APB buses clocks
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
+  {
+    Error_Handler();
+  }
+}
+
+/**
+  * @brief CAN2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_CAN2_Init(void)
+{
+
+  /* USER CODE BEGIN CAN2_Init 0 */
+
+  /* USER CODE END CAN2_Init 0 */
+
+  /* USER CODE BEGIN CAN2_Init 1 */
+
+  /* USER CODE END CAN2_Init 1 */
+  hcan2.Instance = CAN2;
+  hcan2.Init.Prescaler = 9;
+  hcan2.Init.Mode = CAN_MODE_NORMAL;
+  hcan2.Init.SyncJumpWidth = CAN_SJW_4TQ;
+  hcan2.Init.TimeSeg1 = CAN_BS1_4TQ;
+  hcan2.Init.TimeSeg2 = CAN_BS2_5TQ;
+  hcan2.Init.TimeTriggeredMode = DISABLE;
+  hcan2.Init.AutoBusOff = DISABLE;
+  hcan2.Init.AutoWakeUp = DISABLE;
+  hcan2.Init.AutoRetransmission = DISABLE;
+  hcan2.Init.ReceiveFifoLocked = DISABLE;
+  hcan2.Init.TransmitFifoPriority = DISABLE;
+  if (HAL_CAN_Init(&hcan2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN CAN2_Init 2 */
+
+  /* USER CODE END CAN2_Init 2 */
+
+}
+
+/**
+  * @brief TIM1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM1_Init(void)
+{
+
+  /* USER CODE BEGIN TIM1_Init 0 */
+
+  /* USER CODE END TIM1_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+  TIM_OC_InitTypeDef sConfigOC = {0};
+  TIM_BreakDeadTimeConfigTypeDef sBreakDeadTimeConfig = {0};
+
+  /* USER CODE BEGIN TIM1_Init 1 */
+
+  /* USER CODE END TIM1_Init 1 */
+  htim1.Instance = TIM1;
+  htim1.Init.Prescaler = 0;
+  htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim1.Init.Period = 65535;
+  htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim1.Init.RepetitionCounter = 0;
+  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_Init(&htim1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 0;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
+  sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
+  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sBreakDeadTimeConfig.OffStateRunMode = TIM_OSSR_DISABLE;
+  sBreakDeadTimeConfig.OffStateIDLEMode = TIM_OSSI_DISABLE;
+  sBreakDeadTimeConfig.LockLevel = TIM_LOCKLEVEL_OFF;
+  sBreakDeadTimeConfig.DeadTime = 0;
+  sBreakDeadTimeConfig.BreakState = TIM_BREAK_DISABLE;
+  sBreakDeadTimeConfig.BreakPolarity = TIM_BREAKPOLARITY_HIGH;
+  sBreakDeadTimeConfig.AutomaticOutput = TIM_AUTOMATICOUTPUT_DISABLE;
+  if (HAL_TIMEx_ConfigBreakDeadTime(&htim1, &sBreakDeadTimeConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM1_Init 2 */
+
+  /* USER CODE END TIM1_Init 2 */
+  HAL_TIM_MspPostInit(&htim1);
+
+}
+
+/**
+  * @brief TIM2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM2_Init(void)
+{
+
+  /* USER CODE BEGIN TIM2_Init 0 */
+
+  /* USER CODE END TIM2_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+  TIM_OC_InitTypeDef sConfigOC = {0};
+
+  /* USER CODE BEGIN TIM2_Init 1 */
+
+  /* USER CODE END TIM2_Init 1 */
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 0;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 65535;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 0;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM2_Init 2 */
+
+  /* USER CODE END TIM2_Init 2 */
+  HAL_TIM_MspPostInit(&htim2);
+
+}
+
+/**
+  * @brief USART2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART2_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART2_Init 0 */
+
+  /* USER CODE END USART2_Init 0 */
+
+  /* USER CODE BEGIN USART2_Init 1 */
+
+  /* USER CODE END USART2_Init 1 */
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 115200;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART2_Init 2 */
+
+  /* USER CODE END USART2_Init 2 */
+
+}
+
+/**
+  * @brief GPIO Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_GPIO_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+/* USER CODE BEGIN MX_GPIO_Init_1 */
+/* USER CODE END MX_GPIO_Init_1 */
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOH_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOD_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, PSB2_Pin|PSB1_Pin|BRK2_Pin|BATT_Pin
+                          |PSB3_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, DIRECTION3_Pin|DIRECTION2_Pin|DIRECTION1_Pin|LED6_Pin
+                          |LED1_Pin|LED2_Pin|LED3_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, BRK1_Pin|PSB5_Pin|BRK5_Pin|PSB6_Pin
+                          |BRK3_Pin|PSB4_Pin|BRK4_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(DIRECTION4_GPIO_Port, DIRECTION4_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : B1_Pin */
+  GPIO_InitStruct.Pin = B1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PSB2_Pin PSB1_Pin BRK2_Pin BATT_Pin
+                           PSB3_Pin */
+  GPIO_InitStruct.Pin = PSB2_Pin|PSB1_Pin|BRK2_Pin|BATT_Pin
+                          |PSB3_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : DIRECTION3_Pin DIRECTION2_Pin DIRECTION1_Pin LED6_Pin
+                           LED1_Pin LED2_Pin LED3_Pin */
+  GPIO_InitStruct.Pin = DIRECTION3_Pin|DIRECTION2_Pin|DIRECTION1_Pin|LED6_Pin
+                          |LED1_Pin|LED2_Pin|LED3_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : BRK1_Pin PSB5_Pin BRK5_Pin PSB6_Pin
+                           BRK3_Pin PSB4_Pin BRK4_Pin */
+  GPIO_InitStruct.Pin = BRK1_Pin|PSB5_Pin|BRK5_Pin|PSB6_Pin
+                          |BRK3_Pin|PSB4_Pin|BRK4_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : DIRECTION4_Pin */
+  GPIO_InitStruct.Pin = DIRECTION4_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(DIRECTION4_GPIO_Port, &GPIO_InitStruct);
+
+/* USER CODE BEGIN MX_GPIO_Init_2 */
+/* USER CODE END MX_GPIO_Init_2 */
+}
+
+/* USER CODE BEGIN 4 */
+uint32_t id;
+uint32_t dlc;
+std::array<int,8> data;
+float motor_pwm[3];
+
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
+{
+	  uint8_t RxData[8];
+	  CAN_RxHeaderTypeDef RxHeader;
+	  std::array<int,5> arr_data;
+	  std::array<int,5> arr_old_data;
+	  //int last_hat;
+
+	  if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
+	  {
+		  id = (RxHeader.IDE == CAN_ID_STD)? RxHeader.StdId : RxHeader.ExtId;     // ID
+		  dlc = RxHeader.DLC;                                                     // DLC
+		  data[0] = RxData[0] - 128;                                                    // Data
+		  data[1] = RxData[1] - 128;
+		  data[2] = RxData[2] - 128;
+		  data[3] = RxData[3];//A
+		  data[4] = RxData[4];//B
+		  data[5] = RxData[5];//X
+		  data[6] = RxData[6];//Y
+		  data[7] = RxData[7];//HAT
+		  //printf("%d %d %d %d %d %d %d %d\n",data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7]);
+
+			for(int i = 0;i < 5;i++){
+				arr_data[i] = data[i+3];
+			}
+			if (arr_data[0] <= 1 or arr_data[1] <= 1 or arr_data[2] <= 1 or arr_data[3] <= 1){
+				recovery_prog();
+
+				if (std::abs(data[0]) <= 5){ //perfect stop
+				  HAL_GPIO_WritePin(GPIOB,BRK1_Pin,GPIO_PIN_SET);
+				}
+				else{
+				  HAL_GPIO_WritePin(GPIOB,BRK1_Pin,GPIO_PIN_RESET);
+				}
+				if (std::abs(data[1]) <= 5){
+				  HAL_GPIO_WritePin(GPIOC,BRK2_Pin,GPIO_PIN_SET);
+				}
+				else{
+				  HAL_GPIO_WritePin(GPIOC,BRK2_Pin,GPIO_PIN_RESET);
+				}
+				if (std::abs(data[2]) <= 5){
+				  HAL_GPIO_WritePin(GPIOB,BRK3_Pin,GPIO_PIN_SET);
+				}
+				else{
+				  HAL_GPIO_WritePin(GPIOB,BRK3_Pin,GPIO_PIN_RESET);
+				}
+				//OMNI_3
+				//WE_3(data[1],data[2],data[0],motor_pwm); //omni
+				nomal_3(data[0],motor_pwm);//test
+
+				__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,data[0] * 500);
+				__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2,data[1] * 500);
+				__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,data[2] * 500);
+
+				if (arr_data != arr_old_data) { //等しくない場合に切り替え操作
+					toggle_switch(arr_data);
+				}
+				arr_old_data = arr_data; //旧ボタンデータとして登録
+			}
+			else{
+				emergency_prog();
+			}
+	  }
+}
+
+int _write(int file, char *ptr, int len)
+{
+  HAL_UART_Transmit(&huart2,(uint8_t *)ptr,len,10);
+  return len;
+}
+
+void toggle_switch(std::array<int,5>& arr){
+	if(arr[0] == 1){//COLLECT_PLUS
+		//BRK_OFF
+		//PLUS
+		HAL_GPIO_WritePin(GPIOA, LED1_Pin, GPIO_PIN_SET);
+	}
+	else if (arr[0] == 0){//COLLECT_STOP
+		//BRK_ON
+		HAL_GPIO_WritePin(GPIOA, LED1_Pin, GPIO_PIN_RESET);
+	}
+	if(arr[1] == 1){//COLLECT_MINUS
+		//BRK_OFF
+		//MINUS
+		//HAL_GPIO_WritePin(GPIOA, LED2_Pin, GPIO_PIN_SET);
+	}
+	else if (arr[1] == 0){//COLLECT_STOP
+		//BRK_ON
+		//HAL_GPIO_WritePin(GPIOA, LED2_Pin, GPIO_PIN_RESET);
+	}
+	if(arr[2] == 1){//RELOAD_START
+		//BRK_OFF
+		//HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
+	}
+	else if (arr[2] == 0){//RELOAD_KEEP
+		//BRK_ON & KEEP
+		//HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
+	}
+	if(arr[3] == 1){//SHOOT
+		//BRK_OFF
+	}
+	else if (arr[3] == 0){//SHOOT_STOP
+		//BRK_ON & KEEP
+	}
+	if(arr[4] == 2){//DEG_UP
+		//BRK_OFF & PLUS
+		HAL_GPIO_WritePin(GPIOA, LED2_Pin, GPIO_PIN_SET);
+	}
+	else if (arr[4] == 1){//DEG_KEEP
+		//BRK_ON & KEEP
+		HAL_GPIO_WritePin(GPIOA, LED2_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
+	}
+	else if (arr[4] == 0){//DEG_DOWN
+		//BRK_OFF & MINUS
+		HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
+	}
+}
+
+void emergency_prog(void){
+	  //HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
+	//ALL_PSB_ON
+	;
+}
+
+void recovery_prog(void){
+	  //HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
+	//ALL_PSB_OFF
+	;
+}
+
+void WE_3(int Vx,int Vy,int Vr,float* motor_pwm){
+    std::array<std::array<float,3>,3> motor_arr{
+        {{-1,0,-1}},
+        {{1/2,sqrt(3)/-2,-1}},
+        {{1/2,sqrt(3)/2,-1}},
+    };
+
+    for(int i = 0;i < 3;i++){
+        motor_pwm[i] = Vx * motor_arr[i][0] + Vy * motor_arr[i][1] + Vr * motor_arr[i][2];
+    }
+    if(motor_pwm[0] < 0){
+        //HAL_GPIOでDIRECTION_PINを操作
+        motor_pwm[0] *= -1.0;
+        HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_RESET);
+    }
+    else{
+        HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_SET);
+    }
+    if(motor_pwm[1] < 0){
+        //HAL_GPIOでDIRECTION_PINを操作
+        motor_pwm[1] *= -1.0;
+        HAL_GPIO_WritePin(GPIOA,DIRECTION2_Pin,GPIO_PIN_RESET);
+    }
+    else{
+        HAL_GPIO_WritePin(GPIOA,DIRECTION2_Pin,GPIO_PIN_SET);
+    }
+    if(motor_pwm[1] < 0){
+        //HAL_GPIOでDIRECTION_PINを操作
+        motor_pwm[1] *= -1.0;
+        HAL_GPIO_WritePin(GPIOA,DIRECTION3_Pin,GPIO_PIN_RESET);
+    }
+    else{
+        HAL_GPIO_WritePin(GPIOA,DIRECTION3_Pin,GPIO_PIN_SET);
+    }
+}
+
+void nomal_3(int power,float* motor_pwm){
+	motor_pwm[0] = power;
+	motor_pwm[1] = power;
+	motor_pwm[2] = power;
+}
+/* USER CODE END 4 */
+
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+void Error_Handler(void)
+{
+  /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
+  __disable_irq();
+  while (1)
+  {
+  }
+  /* USER CODE END Error_Handler_Debug */
+}
+
+#ifdef  USE_FULL_ASSERT
+/**
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
+void assert_failed(uint8_t *file, uint32_t line)
+{
+  /* USER CODE BEGIN 6 */
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* USER CODE END 6 */
+}
+#endif /* USE_FULL_ASSERT */

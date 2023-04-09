@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
 #include <stdlib.h>
+#include <cmath>
 
 #include <algorithm>
 #include <array>
@@ -74,7 +75,8 @@ int _write(int file, char *ptr, int len);
 void emergency_prog(void);
 void recovery_prog(void);
 void toggle_switch(std::array<int,5>& arr);
-
+void WE_3(float Vx,float Vy,float Vr,std::array<float,3>& motor_pwm);
+void nomal_3(float power,std::array<float,3>& motor_pwm);
 
 /* USER CODE END 0 */
 
@@ -552,13 +554,19 @@ static void MX_GPIO_Init(void)
 uint32_t id;
 uint32_t dlc;
 std::array<int,8> data;
+std::array<float,3>motor_pwm;
+std::array<std::array<float,3>,3> motor_arr{{
+	{-1,0,-1},
+	{1/2,std::sqrt(3)/-2,-1},
+	{1/2,std::sqrt(3)/2,-1}
+}};
 
-void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
-{
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan){
 	  uint8_t RxData[8];
 	  CAN_RxHeaderTypeDef RxHeader;
 	  std::array<int,5> arr_data;
 	  std::array<int,5> arr_old_data;
+	  float motor_amp = 500;
 	  //int last_hat;
 
 	  if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
@@ -578,58 +586,35 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 			for(int i = 0;i < 5;i++){
 				arr_data[i] = data[i+3];
 			}
-			if (arr_data[0] <= 1 or arr_data[1] <= 1 or arr_data[2] <= 1 or arr_data[3] <= 1){
+			if (arr_data[0] <= 1 or arr_data[1] <= 1 or arr_data[2] <= 1 or arr_data[3] <= 1){ //not emergency mode
 				recovery_prog();
 
+				//WE_3((float)data[1],(float)data[2],(float)data[0],motor_pwm); //omni
+				nomal_3((float)data[0],motor_pwm);//test
 
-				if (std::abs(data[0]) <= 5){ //perfect stop
+				if (std::abs(motor_pwm[0]) <= 10){ //perfect stop
 				  HAL_GPIO_WritePin(GPIOB,BRK1_Pin,GPIO_PIN_SET);
 				}
 				else{
 				  HAL_GPIO_WritePin(GPIOB,BRK1_Pin,GPIO_PIN_RESET);
 				}
-				if (std::abs(data[1]) <= 5){
+				if (std::abs(motor_pwm[1]) <= 10){
 				  HAL_GPIO_WritePin(GPIOC,BRK2_Pin,GPIO_PIN_SET);
 				}
 				else{
 				  HAL_GPIO_WritePin(GPIOC,BRK2_Pin,GPIO_PIN_RESET);
 				}
-				if (std::abs(data[2]) <= 5){
+				if (std::abs(motor_pwm[2]) <= 10){
 				  HAL_GPIO_WritePin(GPIOB,BRK3_Pin,GPIO_PIN_SET);
 				}
 				else{
 				  HAL_GPIO_WritePin(GPIOB,BRK3_Pin,GPIO_PIN_RESET);
 				}
 				//OMNI_3
-				//data[0] < 0 じゃなくする
 
-				if (data[0] < 0){
-				  HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_RESET);
-				  data[0] *= -1;
-				}
-				else{
-				  HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_SET);
-				}
-
-				if (data[1] < 0){
-				  HAL_GPIO_WritePin(GPIOA,DIRECTION2_Pin,GPIO_PIN_RESET);
-				  data[1] *= -1;
-				}
-				else{
-				  HAL_GPIO_WritePin(GPIOA,DIRECTION2_Pin,GPIO_PIN_SET);
-				}
-
-				if (data[2] < 0){
-				  HAL_GPIO_WritePin(GPIOA,DIRECTION3_Pin,GPIO_PIN_RESET);
-				  data[2] *= -1;
-				}
-				else{
-				  HAL_GPIO_WritePin(GPIOA,DIRECTION3_Pin,GPIO_PIN_SET);
-				}
-
-				__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,data[0] * 500);
-				__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2,data[1] * 500);
-				__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,data[2] * 500);
+				__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,motor_pwm[0] * motor_amp);
+				__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2,motor_pwm[1] * motor_amp);
+				__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,motor_pwm[2] * motor_amp);
 
 				if (arr_data != arr_old_data) { //等しくない場合に切り替え操作
 					toggle_switch(arr_data);
@@ -706,6 +691,66 @@ void recovery_prog(void){
 	  //HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
 	//ALL_PSB_OFF
 	;
+}
+
+void WE_3(float Vx,float Vy,float Vr,std::array<float,3>& motor_pwm){
+    for(int i = 0;i < 3;i++){
+        motor_pwm[i] = Vx * motor_arr[i][0] + Vy * motor_arr[i][1] + Vr * motor_arr[i][2];
+    }
+    if(motor_pwm[0] < 0){
+        //HAL_GPIOでDIRECTION_PINを操作
+        motor_pwm[0] *= -1.0;
+        HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_RESET);
+    }
+    else{
+        HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_SET);
+    }
+    if(motor_pwm[1] < 0){
+        //HAL_GPIOでDIRECTION_PINを操作
+        motor_pwm[1] *= -1.0;
+        HAL_GPIO_WritePin(GPIOA,DIRECTION2_Pin,GPIO_PIN_RESET);
+    }
+    else{
+        HAL_GPIO_WritePin(GPIOA,DIRECTION2_Pin,GPIO_PIN_SET);
+    }
+    if(motor_pwm[2] < 0){
+        //HAL_GPIOでDIRECTION_PINを操作
+        motor_pwm[2] *= -1.0;
+        HAL_GPIO_WritePin(GPIOA,DIRECTION3_Pin,GPIO_PIN_RESET);
+    }
+    else{
+        HAL_GPIO_WritePin(GPIOA,DIRECTION3_Pin,GPIO_PIN_SET);
+    }
+}
+
+void nomal_3(float power,std::array<float,3>& motor_pwm){
+	motor_pwm[0] = power;
+	motor_pwm[1] = power;
+	motor_pwm[2] = power;
+    if(motor_pwm[0] < 0){
+        //HAL_GPIOでDIRECTION_PINを操作
+        motor_pwm[0] *= -1.0;
+        HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_RESET);
+    }
+    else{
+        HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_SET);
+    }
+    if(motor_pwm[1] < 0){
+        //HAL_GPIOでDIRECTION_PINを操作
+        motor_pwm[1] *= -1.0;
+        HAL_GPIO_WritePin(GPIOA,DIRECTION2_Pin,GPIO_PIN_RESET);
+    }
+    else{
+        HAL_GPIO_WritePin(GPIOA,DIRECTION2_Pin,GPIO_PIN_SET);
+    }
+    if(motor_pwm[2] < 0){
+        //HAL_GPIOでDIRECTION_PINを操作
+        motor_pwm[2] *= -1.0;
+        HAL_GPIO_WritePin(GPIOA,DIRECTION3_Pin,GPIO_PIN_RESET);
+    }
+    else{
+        HAL_GPIO_WritePin(GPIOA,DIRECTION3_Pin,GPIO_PIN_SET);
+    }
 }
 /* USER CODE END 4 */
 
