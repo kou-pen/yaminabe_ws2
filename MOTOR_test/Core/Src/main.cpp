@@ -146,6 +146,12 @@ HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   HAL_GPIO_WritePin(GPIOC,BRK2_Pin,GPIO_PIN_RESET);
   HAL_GPIO_WritePin(GPIOC,PSB3_Pin,GPIO_PIN_SET);
   HAL_GPIO_WritePin(GPIOB,BRK3_Pin,GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB,PSB4_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOB,BRK4_Pin,GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB,PSB5_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOB,BRK5_Pin,GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB,PSB6_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOB,BRK6_Pin,GPIO_PIN_RESET);
 
   HAL_GPIO_WritePin(GPIOA, LED1_Pin, GPIO_PIN_SET);
   HAL_Delay(100);
@@ -496,7 +502,7 @@ static void MX_GPIO_Init(void)
                           |PSB3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, DIRECTION3_Pin|DIRECTION2_Pin|DIRECTION1_Pin|LED6_Pin
+  HAL_GPIO_WritePin(GPIOA, DIRECTION3_Pin|DIRECTION2_Pin|DIRECTION1_Pin|BRK6_Pin
                           |LED1_Pin|LED2_Pin|LED3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
@@ -521,9 +527,9 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : DIRECTION3_Pin DIRECTION2_Pin DIRECTION1_Pin LED6_Pin
+  /*Configure GPIO pins : DIRECTION3_Pin DIRECTION2_Pin DIRECTION1_Pin BRK6_Pin
                            LED1_Pin LED2_Pin LED3_Pin */
-  GPIO_InitStruct.Pin = DIRECTION3_Pin|DIRECTION2_Pin|DIRECTION1_Pin|LED6_Pin
+  GPIO_InitStruct.Pin = DIRECTION3_Pin|DIRECTION2_Pin|DIRECTION1_Pin|BRK6_Pin
                           |LED1_Pin|LED2_Pin|LED3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;

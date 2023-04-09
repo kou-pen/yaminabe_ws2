@@ -1,5 +1,40 @@
-2023-04-09 15:04:19,960 [ERROR] ConfigurationRetriever:142 - IOException on connection: Connection reset
-2023-04-09 15:04:20,358 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.SocketException: Connection reset
-2023-04-09 15:10:05,832 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.SocketException: Connection reset
-2023-04-09 15:17:15,430 [ERROR] ConfigurationRetriever:142 - IOException on connection: Connection reset
-2023-04-09 15:17:16,560 [ERROR] AdobePublisher:162 - Exception while opening the connection: java.net.SocketException: Connection reset
+2023-04-09 15:36:39,754 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 469254512 Bytes (927989760)
+2023-04-09 15:36:39,854 [ERROR] ConfigurationRetriever:142 - IOException on connection: Connection reset
+2023-04-09 15:36:41,219 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 664815984 Bytes (927989760)
+2023-04-09 15:36:41,450 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 750799216 Bytes (927989760)
+2023-04-09 15:36:41,582 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: CAN
+2023-04-09 15:36:41,582 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8
+2023-04-09 15:36:41,582 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8
+2023-04-09 15:36:41,582 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-04-09 15:36:41,582 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-04-09 15:36:41,582 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-04-09 15:36:41,582 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2023-04-09 15:36:41,583 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-04-09 15:36:41,583 [INFO] CodeGenerator:793 - code generatio: config db path: /opt/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.common.mx_6.8.0.202302231600//db/
+2023-04-09 15:36:41,742 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/MOTOR_test/MXTmpFiles/license.tmp_save
+2023-04-09 15:36:41,785 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/MOTOR_test/MXTmpFiles/license.tmp
+2023-04-09 15:36:41,805 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/MOTOR_test/MXTmpFiles/gpio.tmp_save
+2023-04-09 15:36:41,860 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/MOTOR_test/MXTmpFiles/gpio.tmp
+2023-04-09 15:36:42,015 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/MOTOR_test/Core/Src/stm32f4xx_it.c_save
+2023-04-09 15:36:42,149 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/MOTOR_test/Core/Src/stm32f4xx_it.c
+2023-04-09 15:36:42,149 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/MOTOR_test/Core/Inc/stm32f4xx_it.h_save
+2023-04-09 15:36:42,184 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/MOTOR_test/Core/Inc/stm32f4xx_it.h
+2023-04-09 15:36:42,185 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/MOTOR_test/Core/Src/stm32f4xx_hal_msp.c_save
+2023-04-09 15:36:42,243 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/MOTOR_test/Core/Src/stm32f4xx_hal_msp.c
+2023-04-09 15:36:42,243 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/MOTOR_test/MXTmpFiles/system.tmp_save
+2023-04-09 15:36:42,279 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/MOTOR_test/MXTmpFiles/system.tmp
+2023-04-09 15:36:42,281 [INFO] CodeEngine:311 - oldGeneratedFile, /home/kohki/yaminabe_ws/MOTOR_test/Core/Inc/stm32f4xx_hal_conf.h_save
+2023-04-09 15:36:42,321 [INFO] CodeEngine:335 - Generated code: /home/kohki/yaminabe_ws/MOTOR_test/Core/Inc/stm32f4xx_hal_conf.h
+2023-04-09 15:36:42,334 [WARN] IPConfigManager:2937 - Warning: the RefConfig PLL2P_FOR_MCO is not available in your config.xml file
+2023-04-09 15:36:42,336 [WARN] IPConfigManager:3431 - IP not found : TIM
+2023-04-09 15:36:42,337 [WARN] CodeGenerator:3754 - IP not found : null
+2023-04-09 15:36:42,338 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/MOTOR_test/Core/Inc/main.h_save
+2023-04-09 15:36:42,387 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/MOTOR_test/Core/Inc/main.h
+2023-04-09 15:36:42,388 [INFO] CodeEngine:255 - oldGeneratedFile, /home/kohki/yaminabe_ws/MOTOR_test/Core/Src/main.c_save
+2023-04-09 15:36:42,463 [INFO] CodeEngine:279 - Generated code: /home/kohki/yaminabe_ws/MOTOR_test/Core/Src/main.c
+2023-04-09 15:36:42,837 [INFO] ProjectBuilder:2996 - Time for Copy HAL[1] : 19mS.
+2023-04-09 15:36:42,837 [INFO] ProjectBuilder:4304 - Project Generator version: 3.19.2
+2023-04-09 15:36:42,973 [INFO] ConfigFileManager:1483 - The Die is : DIE421
+2023-04-09 15:36:43,808 [INFO] ProjectBuilder:4505 - Time for Generating toolchain IDE Files: 971mS.
+2023-04-09 15:36:43,808 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 0mS.
+2023-04-09 15:36:43,809 [INFO] ProjectBuilder:2867 - Time for Copy CMSIS : 0mS.

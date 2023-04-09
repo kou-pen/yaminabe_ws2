@@ -103,8 +103,8 @@ void Error_Handler(void);
 #define pwm2_GPIO_Port GPIOA
 #define pwm3_Pin GPIO_PIN_10
 #define pwm3_GPIO_Port GPIOA
-#define LED6_Pin GPIO_PIN_11
-#define LED6_GPIO_Port GPIOA
+#define BRK6_Pin GPIO_PIN_11
+#define BRK6_GPIO_Port GPIOA
 #define LED1_Pin GPIO_PIN_13
 #define LED1_GPIO_Port GPIOA
 #define LED2_Pin GPIO_PIN_14
