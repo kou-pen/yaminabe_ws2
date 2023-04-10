@@ -1,28 +1,30 @@
 std_abs.h:75:3:constexpr float std::abs(float)	1
 main.cpp:87:5:int main()	1
-main.cpp:212:6:void SystemClock_Config()	4
-main.cpp:267:13:void MX_CAN2_Init()	2
-main.cpp:304:13:void MX_TIM1_Init()	9
-main.cpp:387:13:void MX_TIM2_Init()	8
-main.cpp:454:13:void MX_USART2_UART_Init()	2
-main.cpp:487:13:void MX_GPIO_Init()	1
-main.cpp:570:6:void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef*)	13
-main.cpp:636:5:int _write(int, char*, int)	1
-main.cpp:642:6:void toggle_switch(std::array<int, 5>&)	9
-main.cpp:690:6:void emergency_prog()	1
-main.cpp:696:6:void recovery_prog()	1
-main.cpp:702:6:void WE_3(float, float, float, std::array<float, 3>&)	5
-main.cpp:732:6:void nomal_3(float, std::array<float, 3>&)	4
-main.cpp:767:6:void Error_Handler()	1
+main.cpp:215:6:void SystemClock_Config()	4
+main.cpp:270:13:void MX_CAN2_Init()	2
+main.cpp:307:13:void MX_TIM1_Init()	9
+main.cpp:390:13:void MX_TIM2_Init()	8
+main.cpp:457:13:void MX_USART2_UART_Init()	2
+main.cpp:490:13:void MX_GPIO_Init()	1
+main.cpp:577:6:void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef*)	13
+main.cpp:648:5:int _write(int, char*, int)	1
+main.cpp:654:6:void toggle_switch(std::array<int, 5>&, std::array<int, 3>&)	14
+main.cpp:711:6:void emergency_prog()	1
+main.cpp:724:6:void recovery_prog()	1
+main.cpp:736:6:void WE_3(float, float, float, std::array<float, 3>&)	5
+main.cpp:766:6:void nomal_3(float, std::array<float, 3>&)	4
+main.cpp:801:6:void Error_Handler()	1
 array:185:7:std::array<_Tp, _Nm>::value_type& std::array<_Tp, _Nm>::operator[](std::array<_Tp, _Nm>::size_type) [with _Tp = int; unsigned int _Nm = 8]	1
 array:185:7:std::array<_Tp, _Nm>::value_type& std::array<_Tp, _Nm>::operator[](std::array<_Tp, _Nm>::size_type) [with _Tp = int; unsigned int _Nm = 5]	1
 array:185:7:std::array<_Tp, _Nm>::value_type& std::array<_Tp, _Nm>::operator[](std::array<_Tp, _Nm>::size_type) [with _Tp = float; unsigned int _Nm = 3]	1
 array:282:5:bool std::operator!=(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&) [with _Tp = int; unsigned int _Nm = 5]	1
+array:185:7:std::array<_Tp, _Nm>::value_type& std::array<_Tp, _Nm>::operator[](std::array<_Tp, _Nm>::size_type) [with _Tp = int; unsigned int _Nm = 3]	1
 array:185:7:std::array<_Tp, _Nm>::value_type& std::array<_Tp, _Nm>::operator[](std::array<_Tp, _Nm>::size_type) [with _Tp = std::array<float, 3>; unsigned int _Nm = 3]	1
 array:55:7:static constexpr _Tp& std::__array_traits<_Tp, _Nm>::_S_ref(const _Tp (&)[_Nm], std::size_t) [with _Tp = int; unsigned int _Nm = 8]	1
 array:55:7:static constexpr _Tp& std::__array_traits<_Tp, _Nm>::_S_ref(const _Tp (&)[_Nm], std::size_t) [with _Tp = int; unsigned int _Nm = 5]	1
 array:55:7:static constexpr _Tp& std::__array_traits<_Tp, _Nm>::_S_ref(const _Tp (&)[_Nm], std::size_t) [with _Tp = float; unsigned int _Nm = 3]	1
 array:253:5:bool std::operator==(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&) [with _Tp = int; unsigned int _Nm = 5]	1
+array:55:7:static constexpr _Tp& std::__array_traits<_Tp, _Nm>::_S_ref(const _Tp (&)[_Nm], std::size_t) [with _Tp = int; unsigned int _Nm = 3]	1
 array:55:7:static constexpr _Tp& std::__array_traits<_Tp, _Nm>::_S_ref(const _Tp (&)[_Nm], std::size_t) [with _Tp = std::array<float, 3>; unsigned int _Nm = 3]	1
 array:130:7:const value_type* std::array<_Tp, _Nm>::begin() const [with _Tp = int; unsigned int _Nm = 5]	1
 array:138:7:const value_type* std::array<_Tp, _Nm>::end() const [with _Tp = int; unsigned int _Nm = 5]	1

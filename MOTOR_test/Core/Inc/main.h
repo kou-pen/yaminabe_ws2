@@ -79,6 +79,10 @@ void Error_Handler(void);
 #define USART_RX_GPIO_Port GPIOA
 #define DIRECTION1_Pin GPIO_PIN_4
 #define DIRECTION1_GPIO_Port GPIOA
+#define DIRECTION6_Pin GPIO_PIN_5
+#define DIRECTION6_GPIO_Port GPIOA
+#define DIRECTION5_Pin GPIO_PIN_6
+#define DIRECTION5_GPIO_Port GPIOA
 #define PSB3_Pin GPIO_PIN_4
 #define PSB3_GPIO_Port GPIOC
 #define BRK1_Pin GPIO_PIN_0

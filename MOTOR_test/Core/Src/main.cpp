@@ -74,7 +74,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan);
 int _write(int file, char *ptr, int len);
 void emergency_prog(void);
 void recovery_prog(void);
-void toggle_switch(std::array<int,5>& arr);
+void toggle_switch(std::array<int,5>& arr,std::array<int,3>& mec_pwm);
 void WE_3(float Vx,float Vy,float Vr,std::array<float,3>& motor_pwm);
 void nomal_3(float power,std::array<float,3>& motor_pwm);
 
@@ -134,6 +134,9 @@ HAL_CAN_ConfigFilter(&hcan2, &filter);
 HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);
   HAL_CAN_Start(&hcan2);
   // 割り込み有効
   HAL_CAN_ActivateNotification(&hcan2, CAN_IT_RX_FIFO0_MSG_PENDING);
@@ -502,8 +505,9 @@ static void MX_GPIO_Init(void)
                           |PSB3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, DIRECTION3_Pin|DIRECTION2_Pin|DIRECTION1_Pin|BRK6_Pin
-                          |LED1_Pin|LED2_Pin|LED3_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, DIRECTION3_Pin|DIRECTION2_Pin|DIRECTION1_Pin|DIRECTION6_Pin
+                          |DIRECTION5_Pin|BRK6_Pin|LED1_Pin|LED2_Pin
+                          |LED3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, BRK1_Pin|PSB5_Pin|BRK5_Pin|PSB6_Pin
@@ -527,10 +531,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : DIRECTION3_Pin DIRECTION2_Pin DIRECTION1_Pin BRK6_Pin
-                           LED1_Pin LED2_Pin LED3_Pin */
-  GPIO_InitStruct.Pin = DIRECTION3_Pin|DIRECTION2_Pin|DIRECTION1_Pin|BRK6_Pin
-                          |LED1_Pin|LED2_Pin|LED3_Pin;
+  /*Configure GPIO pins : DIRECTION3_Pin DIRECTION2_Pin DIRECTION1_Pin DIRECTION6_Pin
+                           DIRECTION5_Pin BRK6_Pin LED1_Pin LED2_Pin
+                           LED3_Pin */
+  GPIO_InitStruct.Pin = DIRECTION3_Pin|DIRECTION2_Pin|DIRECTION1_Pin|DIRECTION6_Pin
+                          |DIRECTION5_Pin|BRK6_Pin|LED1_Pin|LED2_Pin
+                          |LED3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -561,6 +567,7 @@ uint32_t id;
 uint32_t dlc;
 std::array<int,8> data;
 std::array<float,3>motor_pwm;
+
 std::array<std::array<float,3>,3> motor_arr{{
 	{-1,0,-1},
 	{1/2,std::sqrt(3)/-2,-1},
@@ -572,6 +579,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan){
 	  CAN_RxHeaderTypeDef RxHeader;
 	  std::array<int,5> arr_data;
 	  std::array<int,5> arr_old_data;
+	  std::array<int,3>mechanism_pwm;
 	  float motor_amp = 500;
 	  //int last_hat;
 
@@ -616,16 +624,20 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan){
 				else{
 				  HAL_GPIO_WritePin(GPIOB,BRK3_Pin,GPIO_PIN_RESET);
 				}
-				//OMNI_3
+
+				if (arr_data != arr_old_data) { //等しくない場合に切り替え操作
+					toggle_switch(arr_data,mechanism_pwm);
+				}
+				arr_old_data = arr_data; //旧ボタンデータとして登録
 
 				__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,motor_pwm[0] * motor_amp);
 				__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2,motor_pwm[1] * motor_amp);
 				__HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3,motor_pwm[2] * motor_amp);
 
-				if (arr_data != arr_old_data) { //等しくない場合に切り替え操作
-					toggle_switch(arr_data);
-				}
-				arr_old_data = arr_data; //旧ボタンデータとして登録
+				__HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_1,(int)mechanism_pwm[0]);
+				__HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_2,(int)mechanism_pwm[1]);
+				__HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_3,(int)mechanism_pwm[2]);
+
 			}
 			else{
 				emergency_prog();
@@ -639,64 +651,86 @@ int _write(int file, char *ptr, int len)
   return len;
 }
 
-void toggle_switch(std::array<int,5>& arr){
-	if(arr[0] == 1){//COLLECT_PLUS
+void toggle_switch(std::array<int,5>& arr,std::array<int,3>& mec_pwm){
+	if(arr[0] == 1){//COLLECT_PLUS M4
 		//BRK_OFF
 		//PLUS
-		HAL_GPIO_WritePin(GPIOA, LED1_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOD,DIRECTION4_Pin,GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOB,BRK4_Pin,GPIO_PIN_RESET);
+		mec_pwm[0] = 10000;
 	}
-	else if (arr[0] == 0){//COLLECT_STOP
+	else if (arr[0] == 0 and arr[1] == 0){//COLLECT_STOP M4
 		//BRK_ON
-		HAL_GPIO_WritePin(GPIOA, LED1_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOB,BRK4_Pin,GPIO_PIN_SET);
+		mec_pwm[0] = 0;
 	}
-	if(arr[1] == 1){//COLLECT_MINUS
+	if(arr[1] == 1){//COLLECT_MINUS M4
 		//BRK_OFF
 		//MINUS
-		//HAL_GPIO_WritePin(GPIOA, LED2_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOD,DIRECTION4_Pin,GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOB,BRK4_Pin,GPIO_PIN_RESET);
+		mec_pwm[0] = 10000;
 	}
-	else if (arr[1] == 0){//COLLECT_STOP
-		//BRK_ON
-		//HAL_GPIO_WritePin(GPIOA, LED2_Pin, GPIO_PIN_RESET);
-	}
-	if(arr[2] == 1){//RELOAD_START
+	if(arr[2] == 1){//RELOAD_START M5
 		//BRK_OFF
-		//HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA,DIRECTION5_Pin,GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOB,BRK5_Pin,GPIO_PIN_RESET);
+		mec_pwm[1] = 10000;
 	}
-	else if (arr[2] == 0){//RELOAD_KEEP
+	else if (arr[2] == 0 and arr[3] == 0){//RELOAD_KEEP M5
 		//BRK_ON & KEEP
-		//HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOB,BRK5_Pin,GPIO_PIN_SET);
+		mec_pwm[1] = 0;
 	}
-	if(arr[3] == 1){//SHOOT
+	if(arr[3] == 1){//SHOOT M5
 		//BRK_OFF
+		HAL_GPIO_WritePin(GPIOA,DIRECTION5_Pin,GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOB,BRK5_Pin,GPIO_PIN_RESET);
+		mec_pwm[1] = 10000;
 	}
-	else if (arr[3] == 0){//SHOOT_STOP
-		//BRK_ON & KEEP
-	}
-	if(arr[4] == 2){//DEG_UP
+	if(arr[4] == 2){//DEG_UP M6
 		//BRK_OFF & PLUS
-		HAL_GPIO_WritePin(GPIOA, LED2_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA,DIRECTION6_Pin,GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA,BRK6_Pin,GPIO_PIN_RESET);
+		mec_pwm[2] = 10000;
 	}
-	else if (arr[4] == 1){//DEG_KEEP
-		//BRK_ON & KEEP
-		HAL_GPIO_WritePin(GPIOA, LED2_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
-	}
-	else if (arr[4] == 0){//DEG_DOWN
+	else if (arr[4] == 0){//DEG_DOWN M6
 		//BRK_OFF & MINUS
-		HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOA,DIRECTION6_Pin,GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOA,BRK6_Pin,GPIO_PIN_RESET);
+		mec_pwm[2] = 10000;
 	}
+	else if (arr[4] == 1){//DEG_KEEP M6
+		//BRK_ON & KEEP
+		HAL_GPIO_WritePin(GPIOA,BRK6_Pin,GPIO_PIN_SET);
+		mec_pwm[2] = 0;
+	}
+
 }
 
 void emergency_prog(void){
 	  //HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
 	//ALL_PSB_ON
-	;
+	  HAL_GPIO_WritePin(GPIOC,PSB1_Pin,GPIO_PIN_RESET);
+	  HAL_GPIO_WritePin(GPIOC,PSB2_Pin,GPIO_PIN_RESET);
+	  HAL_GPIO_WritePin(GPIOC,PSB3_Pin,GPIO_PIN_RESET);
+	  HAL_GPIO_WritePin(GPIOB,PSB4_Pin,GPIO_PIN_RESET);
+	  HAL_GPIO_WritePin(GPIOB,PSB5_Pin,GPIO_PIN_RESET);
+	  HAL_GPIO_WritePin(GPIOB,PSB6_Pin,GPIO_PIN_RESET);
+	  HAL_GPIO_WritePin(GPIOA,LED3_Pin,GPIO_PIN_SET);
+
 }
 
 void recovery_prog(void){
 	  //HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
 	//ALL_PSB_OFF
-	;
+	  HAL_GPIO_WritePin(GPIOC,PSB1_Pin,GPIO_PIN_SET);
+	  HAL_GPIO_WritePin(GPIOC,PSB2_Pin,GPIO_PIN_SET);
+	  HAL_GPIO_WritePin(GPIOC,PSB3_Pin,GPIO_PIN_SET);
+	  HAL_GPIO_WritePin(GPIOB,PSB4_Pin,GPIO_PIN_SET);
+	  HAL_GPIO_WritePin(GPIOB,PSB5_Pin,GPIO_PIN_SET);
+	  HAL_GPIO_WritePin(GPIOB,PSB6_Pin,GPIO_PIN_SET);
+	  HAL_GPIO_WritePin(GPIOA,LED3_Pin,GPIO_PIN_RESET);
 }
 
 void WE_3(float Vx,float Vy,float Vr,std::array<float,3>& motor_pwm){
