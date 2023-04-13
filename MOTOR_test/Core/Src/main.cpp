@@ -130,8 +130,8 @@ int main(void)
 
 
 
-HAL_CAN_ConfigFilter(&hcan2, &filter);
-HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  HAL_CAN_ConfigFilter(&hcan2, &filter);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
@@ -141,7 +141,6 @@ HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   // 割り込み有効
   HAL_CAN_ActivateNotification(&hcan2, CAN_IT_RX_FIFO0_MSG_PENDING);
   printf("start\n");
-
 
   HAL_GPIO_WritePin(GPIOC,PSB1_Pin,GPIO_PIN_SET);
   HAL_GPIO_WritePin(GPIOB,BRK1_Pin,GPIO_PIN_RESET);
@@ -169,38 +168,12 @@ HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
   HAL_Delay(100);
 
-  /*
-  HAL_GPIO_WritePin(GPIOB,PSB4_Pin,GPIO_PIN_SET);
-  HAL_GPIO_WritePin(GPIOB,BRK4_Pin,GPIO_PIN_SET);
-*/
-  /*
-  HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_SET);
-  HAL_GPIO_WritePin(GPIOA,DIRECTION2_Pin,GPIO_PIN_SET);
-  */
-  /*
-  HAL_GPIO_WritePin(GPIOD,DIRECTION4_Pin,GPIO_PIN_SET);
-*/
-
-
-
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
-/*
-	  HAL_GPIO_WritePin(GPIOC,PSB1_Pin,GPIO_PIN_SET);
-	  HAL_GPIO_WritePin(GPIOB,BRK1_Pin,GPIO_PIN_RESET);
-	  HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_SET);
-	  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,60000);
-	  HAL_Delay(1000);
-	  HAL_GPIO_WritePin(GPIOA,DIRECTION1_Pin,GPIO_PIN_RESET);
-	  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1,30000);
-	  HAL_Delay(1000);
-	  */
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -570,8 +543,8 @@ std::array<float,3>motor_pwm;
 
 std::array<std::array<float,3>,3> motor_arr{{
 	{-1,0,-1},
-	{1/2,std::sqrt(3)/-2,-1},
-	{1/2,std::sqrt(3)/2,-1}
+	{0.5,std::sqrt(3.0)/-2.0,-1},
+	{0.5,std::sqrt(3.0)/2.0,-1}
 }};
 
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan){
@@ -581,7 +554,6 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan){
 	  std::array<int,5> arr_old_data;
 	  std::array<int,3>mechanism_pwm;
 	  float motor_amp = 500;
-	  //int last_hat;
 
 	  if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
 	  {
@@ -595,7 +567,6 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan){
 		  data[5] = RxData[5];//X
 		  data[6] = RxData[6];//Y
 		  data[7] = RxData[7];//HAT
-		  //printf("%d %d %d %d %d %d %d %d\n",data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7]);
 
 			for(int i = 0;i < 5;i++){
 				arr_data[i] = data[i+3];
@@ -603,9 +574,10 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan){
 			if (arr_data[0] <= 1 or arr_data[1] <= 1 or arr_data[2] <= 1 or arr_data[3] <= 1){ //not emergency mode
 				recovery_prog();
 
-				//WE_3((float)data[1],(float)data[2],(float)data[0],motor_pwm); //omni
-				nomal_3((float)data[0],motor_pwm);//test
+				WE_3((float)data[1],(float)data[2],(float)data[0],motor_pwm); //product
+				//nomal_3((float)data[0],motor_pwm);//code_review
 
+				/*ブレーキ系統にバグあり
 				if (std::abs(motor_pwm[0]) <= 10){ //perfect stop
 				  HAL_GPIO_WritePin(GPIOB,BRK1_Pin,GPIO_PIN_SET);
 				}
@@ -624,7 +596,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan){
 				else{
 				  HAL_GPIO_WritePin(GPIOB,BRK3_Pin,GPIO_PIN_RESET);
 				}
-
+*/
 				if (arr_data != arr_old_data) { //等しくない場合に切り替え操作
 					toggle_switch(arr_data,mechanism_pwm);
 				}
@@ -709,7 +681,6 @@ void toggle_switch(std::array<int,5>& arr,std::array<int,3>& mec_pwm){
 }
 
 void emergency_prog(void){
-	  //HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_SET);
 	//ALL_PSB_ON
 	  HAL_GPIO_WritePin(GPIOC,PSB1_Pin,GPIO_PIN_RESET);
 	  HAL_GPIO_WritePin(GPIOC,PSB2_Pin,GPIO_PIN_RESET);
@@ -722,7 +693,6 @@ void emergency_prog(void){
 }
 
 void recovery_prog(void){
-	  //HAL_GPIO_WritePin(GPIOA, LED3_Pin, GPIO_PIN_RESET);
 	//ALL_PSB_OFF
 	  HAL_GPIO_WritePin(GPIOC,PSB1_Pin,GPIO_PIN_SET);
 	  HAL_GPIO_WritePin(GPIOC,PSB2_Pin,GPIO_PIN_SET);
